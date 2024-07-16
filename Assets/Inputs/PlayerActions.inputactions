@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Ranged Attack Action",
+                    "type": "Button",
+                    "id": "7dab1ab1-400a-4389-9f32-688207f492bf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -143,6 +152,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "91f88bbf-837e-4f17-b8ea-e514a5010791",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ranged Attack Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c8b000f-291a-40f4-b3a9-3721e2582577",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ranged Attack Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

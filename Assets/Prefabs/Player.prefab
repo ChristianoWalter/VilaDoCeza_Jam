@@ -66,6 +66,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3262516795922551111}
+  - {fileID: 2758758028517953467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5123776027808345377
@@ -146,9 +147,18 @@ MonoBehaviour:
   jumpForceAfterDamage: 5
   enemiesMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  canMeleeAttack: 0
+  meleeUI: {fileID: 0}
+  meleeDamage: 0
+  meleeReloadTime: 0
+  canRangedAttack: 1
+  rangedUI: {fileID: 0}
+  projectile: {fileID: 83801297631861635, guid: 167f0fd450398594fa9029253a37a524, type: 3}
+  rangedReloadTime: 5
   rb: {fileID: 472579143185797487}
   foot: {fileID: 3262516795922551111}
+  attackPoint: {fileID: 2758758028517953467}
 --- !u!50 &472579143185797487
 Rigidbody2D:
   serializedVersion: 4
@@ -268,8 +278,59 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fdeeb5e1-6073-47fb-9d97-e2641adf9fa9
     m_ActionName: Player/Jump Action[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c767bc79-ae84-4f27-94db-452fc1da797f
+    m_ActionName: GameActions/Pause Action[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 920986049095794189}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: RangedAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7dab1ab1-400a-4389-9f32-688207f492bf
+    m_ActionName: Player/Ranged Attack Action[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &8743445418220918237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2758758028517953467}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2758758028517953467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743445418220918237}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.81, y: 0.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5149511924067332442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
