@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
+    // Área destinada à ativação de projéteis
     [Header("Triggering the projectile")]
     [SerializeField] float projectileSpeed;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float damage;
 
+    // Variável para configurar a direção do projétil
     [HideInInspector] public Vector2 direction;
 
+    // Área destinada à efitos do projétil
     [Header("Projectile effects")]
     [SerializeField] GameObject impactEffect;
-    [SerializeField] Animator anim;
-
 
     private void Start()
     {

@@ -19,8 +19,7 @@ public class BaseEnemy : HealthController
     // Área destinada a componentes exernos do inimigo
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
-
-    //public Animator enemyAnim;
+    [SerializeField] Animator enemyAnim;
 
     // Start is called before the first frame update
     protected override void Start()

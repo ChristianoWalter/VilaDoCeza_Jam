@@ -8,7 +8,7 @@ public enum PlayerForms
 {
     normal,
     clown,
-    thirdForm
+    thirdForm // Nome provisório
 }
 
 public class PlayerController : HealthController
@@ -74,7 +74,7 @@ public class PlayerController : HealthController
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else Destroy(gameObject);
+        else Destroy(gameObject);       
 
         canMove = true;
     }
@@ -101,6 +101,7 @@ public class PlayerController : HealthController
     {
         if (other.gameObject.tag == "Enemys Head")
         {
+            Debug.Log("foi");
             other.gameObject.GetComponentInParent<HealthController>()?.TakeDamage(jumpDamage);
             Jump(jumpForceAfterDamage);
         }
@@ -112,6 +113,12 @@ public class PlayerController : HealthController
         if (other.gameObject.tag == "SpawnPoint")
         {
             respawnPoint = other.gameObject.transform.position;
+        }
+
+        if (other.gameObject.tag == "Enemys Head" && !dead)
+        {
+            other.gameObject.GetComponentInParent<HealthController>()?.TakeDamage(jumpDamage);
+            Jump(jumpForceAfterDamage);
         }
     }
 
@@ -247,6 +254,7 @@ public class PlayerController : HealthController
     protected override void DamageEffect()
     {
         base.DamageEffect();
+        dead = true;
         anim.SetBool("Respawning", false);
         isInvencible = true;
         anim.SetTrigger("Death");
@@ -267,6 +275,7 @@ public class PlayerController : HealthController
         isInvencible = false;
         //GameManager.instance.SwitchScreen(GameScreens.gameUI);
         gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
+        dead = false;
         PausePlayerMovement(false);
     }
 

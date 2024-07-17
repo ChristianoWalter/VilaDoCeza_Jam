@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        LoadProgress();
+        MainMenuStart();
+        //LoadProgress();
     }
 
     // Método direcionado à salvar progresso do jogo
@@ -140,13 +141,21 @@ public class GameManager : MonoBehaviour
     }
 
     // Método para ser chamado por botão e executar mudança de jogo para tela de menu principal
+    public void MainMenuStart()
+    {
+        isInGame = false;
+        PlayerController.instance.PausePlayerMovement(true);
+        SwitchScreen(GameScreens.mainMenu);
+        playerRef.transform.position = Vector2.zero;
+        playerRef.SetActive(false);
+    }
+    
+    // Método para ser chamado por botão e executar mudança de jogo para tela de menu principal
     public void SwitchGameToMainMenu()
     {
         isInGame = false;
-        SwitchScreen(GameScreens.mainMenu);
         SceneManager.LoadScene("MainMenu");
-
-
+        SwitchScreen(GameScreens.mainMenu);
         playerRef.transform.position = Vector2.zero;
         playerRef.SetActive(false);
     }

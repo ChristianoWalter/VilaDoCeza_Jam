@@ -7,7 +7,8 @@ public class HealthController : MonoBehaviour
 {
     [Header("---Health Settings---")]
     [SerializeField] protected float maxHealth;
-    [SerializeField]protected float currentHealth;
+    protected float currentHealth;
+    protected bool dead;
     protected bool isInvencible;
 
     // Área destinada a variáveis externas para visual da vida
