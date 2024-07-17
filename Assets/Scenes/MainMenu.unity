@@ -285,10 +285,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1491087780448200790, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2571436463605498263, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
       propertyPath: m_Camera
       value: 
@@ -333,10 +329,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3260161739371693064, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5413325162237402881, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
       propertyPath: playerRef
       value: 
@@ -344,10 +336,6 @@ PrefabInstance:
     - target: {fileID: 5575448269734692959, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
       propertyPath: m_Name
       value: Game Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711857110361105835, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

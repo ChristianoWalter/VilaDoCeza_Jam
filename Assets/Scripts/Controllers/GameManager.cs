@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        MainMenuStart();
+        //MainMenuStart();
         //LoadProgress();
     }
 

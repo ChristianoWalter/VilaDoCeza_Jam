@@ -37,15 +37,13 @@ public class PlayerController : HealthController
     [SerializeField] float jumpForceAfterDamage;
     [SerializeField] PlayerForms playerForms;
     [SerializeField] LayerMask enemiesMask;
+    public bool canAttack;
+    float currentTimeToReload;
+    [SerializeField] HabilitiesUIControl reloadUI;
 
     // Variável para retornar ao spawnpoint quando ferido
     [HideInInspector] public Vector2 respawnPoint;
 
-    // Variáveis de combate a longa distância
-    [Header("Ranged combat vaiables")]
-    public bool canAttack;
-    [SerializeField] HabilitiesUIControl reloadUI;
-    float currentTimeToReload;
 
     // Variáveis referentes ao ataque da segunda transformação
     [Header("Second Form habilities variables")]
@@ -194,11 +192,11 @@ public class PlayerController : HealthController
             {
                 case PlayerForms.clown:
                     Instantiate(projectile, attackPoint.position, attackPoint.rotation).GetComponent<ProjectileController>().direction = new Vector2(transform.localScale.x, .15f);
-                    timeToReload = clownReloadTime;
+                    currentTimeToReload = clownReloadTime;
                     StartCoroutine(AttackReload());
                     break;
                 case PlayerForms.thirdForm:
-                    timeToReload = secondReloadTime;
+                    currentTimeToReload = secondReloadTime;
                     StartCoroutine(AttackReload());
                     break;
             }
