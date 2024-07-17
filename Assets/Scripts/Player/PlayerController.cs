@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-public enum PlayerHabilities
+public enum PlayerForms
 {
-    ranged,
-    secondForm,
+    normal,
+    clown,
     thirdForm
 }
 
@@ -35,30 +35,36 @@ public class PlayerController : HealthController
     [Header("--Combat Variables--")]
     [SerializeField] float jumpDamage;
     [SerializeField] float jumpForceAfterDamage;
+    [SerializeField] PlayerForms playerForms;
     [SerializeField] LayerMask enemiesMask;
 
-    // Variáveis de combate a curta distância
-    [Header("Melee combat vaiables")]
-    public bool canMeleeAttack;
-    [SerializeField] HabilitiesUIControl meleeUI;
-    [SerializeField] float meleeDamage;
-    [SerializeField] float meleeReloadTime;
-    float timeToMeleeReload;
-    
+    // Variável para retornar ao spawnpoint quando ferido
+    [HideInInspector] public Vector2 respawnPoint;
+
     // Variáveis de combate a longa distância
     [Header("Ranged combat vaiables")]
-    public bool canRangedAttack;
-    [SerializeField] HabilitiesUIControl rangedUI;
+    public bool canAttack;
+    [SerializeField] HabilitiesUIControl reloadUI;
+    float currentTimeToReload;
+
+    // Variáveis referentes ao ataque da segunda transformação
+    [Header("Second Form habilities variables")]
+    [SerializeField] float damage;
+    [SerializeField] float range;
+    [SerializeField] float secondReloadTime;
+
+    // Variáveis referentes ao ataque da transformação de palhaço
+    [Header("Clown habilities")]
     [SerializeField] GameObject projectile;
-    //[SerializeField] float rangedDamage;
-    [SerializeField] float rangedReloadTime;
-    float timeToRangedReload;
+    [SerializeField] float clownReloadTime;
+    float timeToReload;
 
     // Componentes externos que serão atrelados ao script externamente
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform foot;
     [SerializeField] Transform attackPoint;
+    [SerializeField] Animator anim;
 
     protected override void Awake()
     {
@@ -68,6 +74,7 @@ public class PlayerController : HealthController
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        else Destroy(gameObject);
 
         canMove = true;
     }
@@ -77,22 +84,34 @@ public class PlayerController : HealthController
     {
         if (!canMove) return;
 
-        rb.velocity = new Vector2 (direction * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(direction * moveSpeed, rb.velocity.y);
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         if ((direction > 0 && transform.localScale.x < 0) || (direction < 0 && transform.localScale.x > 0))
         {
             Vector2 _localScale = transform.localScale;
             _localScale.x *= -1f;
             transform.localScale = _localScale;
         }
+
+        anim.SetBool("OnGround", OnGround());
     }
 
-    // Método destinada à entrada de colisão no player
+    // Método destinado à entrada de colisão no player
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemys Head")
         {
             other.gameObject.GetComponentInParent<HealthController>()?.TakeDamage(jumpDamage);
             Jump(jumpForceAfterDamage);
+        }
+    }
+
+    // Método destinado à detecção de colisão (tipo trigger) no player
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "SpawnPoint")
+        {
+            respawnPoint = other.gameObject.transform.position;
         }
     }
 
@@ -111,15 +130,15 @@ public class PlayerController : HealthController
     }
 
     // Método destinado à pausar e despausar a movimentação do Player quando desejado
-    public void PausePlayerMovement()
+    public void PausePlayerMovement(bool pause)
     {
-        if (canMove)
+        if (pause)
         {
+            canMove = false;
             afterPauseSpeed = rb.velocity;
             afterPauseGravity = rb.gravityScale;
             rb.velocity = Vector2.zero;
             rb.gravityScale = 0f;
-            canMove = false;
         }
         else
         {
@@ -130,53 +149,69 @@ public class PlayerController : HealthController
     }
     #endregion
 
+    // Método destinado à transformação do player
+    public void SwitchPlayerForm(PlayerForms _newForm)
+    {
+        playerForms = _newForm;
+        anim.SetInteger("PlayerForm", (int)_newForm);
+        StopAllCoroutines();
+        switch (_newForm)
+        {
+            case PlayerForms.normal:
+                canAttack = false;
+                reloadUI.UpdateFill(1f);
+                break;
+            case PlayerForms.clown:
+                canAttack = true;
+                currentTimeToReload = clownReloadTime;
+                reloadUI.UpdateFill(0f);
+                break;
+            case PlayerForms.thirdForm:
+                canAttack = true;
+                currentTimeToReload = secondReloadTime;
+                reloadUI.UpdateFill(0f);
+                break;
+        }
+        anim.SetTrigger("ChangeForm");
+    }
+
     // Região destinada à métodos e funções de ataque
     #region Attack Methods
     // Método para execução de ataques à distânca
-    public void RangedAttack()
+    public void Attack()
     {
-        if (canRangedAttack && timeToRangedReload == 0)
+        if (canAttack)// && timeToReload == 0)
         {
-            Instantiate(projectile, attackPoint.position, attackPoint.rotation).GetComponent<ProjectileController>().direction = new Vector2(transform.localScale.x, .15f);
-            timeToRangedReload = rangedReloadTime;
-            rangedUI.UpdateFill(rangedReloadTime/rangedReloadTime);
-            StartCoroutine(RangedReload());
-        }
+            canAttack = false;
+            switch (playerForms) 
+            {
+                case PlayerForms.clown:
+                    Instantiate(projectile, attackPoint.position, attackPoint.rotation).GetComponent<ProjectileController>().direction = new Vector2(transform.localScale.x, .15f);
+                    timeToReload = clownReloadTime;
+                    StartCoroutine(AttackReload());
+                    break;
+                case PlayerForms.thirdForm:
+                    timeToReload = secondReloadTime;
+                    StartCoroutine(AttackReload());
+                    break;
+            }
+            timeToReload = currentTimeToReload;
+            reloadUI.UpdateFill(currentTimeToReload / currentTimeToReload);
+        } 
     }
 
     // Método para execução de recarga do ataque à distância
-    public IEnumerator RangedReload()
+    public IEnumerator AttackReload()
     {
-        for (float i = rangedReloadTime; i != 0; i = Mathf.Max(i - .1f, 0))
+        for (float i = currentTimeToReload; i != 0; i = Mathf.Max(i - .1f, 0))
         {
-            timeToRangedReload = i;
-            rangedUI.UpdateFill(timeToRangedReload/rangedReloadTime);
+            timeToReload = i;
+            reloadUI.UpdateFill(timeToReload/currentTimeToReload);
             yield return new WaitForSeconds(.1f);
         }
-        timeToRangedReload = 0f;
-        rangedUI.UpdateFill(timeToRangedReload / rangedReloadTime);
-    }
-
-    // Método para execução de ataques à curta distânca
-    public void MeleeAttack()
-    {
-        if (canMeleeAttack && timeToMeleeReload == 0)
-        {
-
-            timeToMeleeReload = meleeReloadTime;
-            StartCoroutine (MeleeReload());
-        }
-    }
-
-    // Método para execução de recarga do ataque à curta distância
-    public IEnumerator MeleeReload()
-    {
-        for (float i = meleeReloadTime; i != 0; i = Mathf.Max(i - .1f, 0))
-        {
-            timeToMeleeReload = i;
-            yield return new WaitForSeconds(.1f);
-        }
-        timeToMeleeReload = 0f;
+        canAttack = true;
+        timeToReload = 0f;
+        reloadUI.UpdateFill(timeToReload / currentTimeToReload);
     }
     #endregion
 
@@ -191,20 +226,62 @@ public class PlayerController : HealthController
     // Método de recepção de input para ataque a distância
     public void RangedAction(InputAction.CallbackContext value)
     {
-        if (value.performed)
+        if (value.performed && canMove)
         {
-            RangedAttack();
+            Attack();
         }
     }
     
     // Método para recepção de input para execução de pulos
     public void JumpAction(InputAction.CallbackContext value)
     {
-        if (value.performed)
+        if (value.performed && canMove)
         {
             if(OnGround()) Jump(jumpForce);
         }
     }
     #endregion
 
+    // Área para reescritura de métodos do HealthController
+    #region HealthController override Methods
+    protected override void DamageEffect()
+    {
+        base.DamageEffect();
+        anim.SetBool("Respawning", false);
+        isInvencible = true;
+        anim.SetTrigger("Death");
+
+        if (currentHealth > 0) StartCoroutine(Respawn());
+    }
+
+    // Rotina para ressurgimento do player após dano
+    IEnumerator Respawn()
+    {
+        PausePlayerMovement(true);
+        gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+        //GameManager.instance.SwitchScreen(GameScreens.loading);
+        yield return new WaitForSeconds(2f);
+        transform.position = respawnPoint;
+        anim.SetBool("Respawning", true);
+        SwitchPlayerForm(PlayerForms.normal);
+        isInvencible = false;
+        //GameManager.instance.SwitchScreen(GameScreens.gameUI);
+        gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
+        PausePlayerMovement(false);
+    }
+
+    protected override void Death()
+    {
+        base.Death();
+
+        PausePlayerMovement(true);
+        StartCoroutine(DeathRoutine());
+    }
+
+    // Rotina para sequência de morte
+    IEnumerator DeathRoutine()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+    #endregion
 }

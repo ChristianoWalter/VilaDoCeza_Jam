@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogues variables manager")]
     [SerializeField] bool autoStart;
     [SerializeField] DialogueData[] dialogueData;
-    public UnityEvent lastScriptAction;
+    public UnityEvent[] lastScriptAction;
     DialogueStates dialogueStates;
     int scriptIndex;
     int dialogueIndex;
@@ -75,8 +75,9 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue()
     {
         if (dialogueData.Length == dialogueIndex) return;
-        
-        PlayerController.instance.PausePlayerMovement();
+
+        GameManager.instance.SetDialogueBtn(true);
+        PlayerController.instance.PausePlayerMovement(true);
         DialogPanel.SetActive(true);
         open = true;
         NextText();
@@ -103,11 +104,15 @@ public class DialogueManager : MonoBehaviour
     public void FinishDialogue()
     {
         dialogueStates = DialogueStates.finished;
-        if (lastScriptAction != null) lastScriptAction.Invoke();
+        if (lastScriptAction.Length != 0)
+        {
+            if (lastScriptAction[dialogueIndex] != null) lastScriptAction[dialogueIndex].Invoke();
+        }
         open = false;
         characterName.text = "";
         characterScript.text = "";
-        PlayerController.instance.PausePlayerMovement();
+        GameManager.instance.SetDialogueBtn(false);
+        PlayerController.instance.PausePlayerMovement(false);
     }
 
     // Método que ativa diálogo
