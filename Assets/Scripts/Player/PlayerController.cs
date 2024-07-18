@@ -114,11 +114,6 @@ public class PlayerController : HealthController
     // Método destinado à detecção de colisão (tipo trigger) no player
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "SpawnPoint")
-        {
-            respawnPoint = other.gameObject.transform.position;
-        }
-
         if (other.gameObject.tag == "Enemys Head" && !dead)
         {
             other.gameObject.GetComponentInParent<HealthController>()?.TakeDamage(jumpDamage);
@@ -164,22 +159,22 @@ public class PlayerController : HealthController
     {
         playerForms = _newForm;
         anim.SetInteger("PlayerForm", (int)_newForm);
-        StopAllCoroutines();
+        //StopAllCoroutines();
         switch (_newForm)
         {
             case PlayerForms.normal:
                 canAttack = false;
-                reloadUI.UpdateFill(1f);
+                if (reloadUI != null) reloadUI.UpdateFill(1f);
                 break;
             case PlayerForms.clown:
                 canAttack = true;
                 currentTimeToReload = clownReloadTime;
-                reloadUI.UpdateFill(0f);
+                if (reloadUI != null) reloadUI.UpdateFill(0f);
                 break;
             case PlayerForms.thirdForm:
                 canAttack = true;
                 currentTimeToReload = secondReloadTime;
-                reloadUI.UpdateFill(0f);
+                if (reloadUI != null) reloadUI.UpdateFill(0f);
                 break;
         }
         anim.SetTrigger("ChangeForm");
@@ -262,8 +257,7 @@ public class PlayerController : HealthController
         isInvencible = true;
         PausePlayerMovement(true);
         gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
-        SwitchPlayerForm(PlayerForms.normal);
-        audioSource.Play();
+        audioSource.PlayOneShot(sfx[0]);
 
         if (currentHealth > 0)
         {
@@ -277,6 +271,7 @@ public class PlayerController : HealthController
         yield return new WaitForSeconds(1f);
         GameManager.instance.FadeIn();
         yield return new WaitForSeconds(1f);
+        SwitchPlayerForm(PlayerForms.normal);
         transform.position = respawnPoint;
         dead = false;
         anim.SetBool("Dead", dead);

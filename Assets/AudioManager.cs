@@ -9,5 +9,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     [Header("Audios Clip")]
-    public AudioClip SFXClip;
+    public AudioClip[] SFXClips;
+    public AudioClip[] musicClips;
+
+    public void ChangeMusic(int _song)
+    {
+        musicSource.Stop();
+
+        musicSource.PlayOneShot(musicClips[_song]);
+    }
 }

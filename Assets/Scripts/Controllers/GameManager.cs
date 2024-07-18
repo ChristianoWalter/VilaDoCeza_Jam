@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject playerRef;
     [HideInInspector] public bool levelStarted;
     [HideInInspector] public bool gameIsPaused;
+    [SerializeField]GameObject currentSpawnVFX;
+    [SerializeField] RespawnManager currentRespawn;
 
     [Header("Level select manager")]
     [SerializeField] List<GameObject> levels;
@@ -304,6 +306,15 @@ public class GameManager : MonoBehaviour
         levels[_levelNumber].SetActive(true);
         currentLevelActive = _levelNumber;
         EventSystem.current.SetSelectedGameObject(levelBtnSelected[_levelNumber]);
+    }
+
+    // Método para alterar ponto de spawn ativo
+    public void ChangeCurrentSpawn(GameObject _currentVFX, RespawnManager _respawnRef)
+    {
+        if (currentRespawn != null) currentRespawn.activeSpawn = false;
+        if (currentSpawnVFX != null) Destroy(currentSpawnVFX);
+        currentRespawn = _respawnRef;
+        currentSpawnVFX = _currentVFX;
     }
     #endregion
 

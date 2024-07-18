@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3310785264498356213}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.956, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,7 +104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 71740831
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -185,8 +185,8 @@ AudioSource:
   m_GameObject: {fileID: 5744359952091704577}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 38a3654f68fa4f445bb5dbcf954a6644, type: 3}
+  OutputAudioMixerGroup: {fileID: 2183923306197638729, guid: 1d088d97205ec6641a914257bc553b4a, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3ff56aa84de39c042b3ed0be41fa13fa, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -308,7 +308,8 @@ MonoBehaviour:
   projectile: {fileID: 83801297631861635, guid: 167f0fd450398594fa9029253a37a524, type: 3}
   clownReloadTime: 2
   audioSource: {fileID: 8398999153639515413}
-  sfx: []
+  sfx:
+  - {fileID: 8300000, guid: 3ff56aa84de39c042b3ed0be41fa13fa, type: 3}
   rb: {fileID: 472579143185797487}
   foot: {fileID: 3262516795922551111}
   attackPoint: {fileID: 2758758028517953467}
@@ -372,8 +373,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0192208, y: -0.19220752}
-  m_Size: {x: 0.54639035, y: 1.615585}
+  m_Offset: {x: 0.0192208, y: -0.1481151}
+  m_Size: {x: 0.54639035, y: 1.5274001}
   m_Direction: 0
 --- !u!114 &4844077312678211015
 MonoBehaviour:

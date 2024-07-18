@@ -6,7 +6,6 @@ using UnityEngine;
 public class FindCamera : MonoBehaviour
 {
     [SerializeField] BoxCollider2D col;
-    [SerializeField] Canvas canvas;
     CameraController cam;
 
     // Start is called before the first frame update
