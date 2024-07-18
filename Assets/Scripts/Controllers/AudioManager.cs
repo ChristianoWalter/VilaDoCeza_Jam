@@ -15,7 +15,22 @@ public class AudioManager : MonoBehaviour
     public void ChangeMusic(int _song)
     {
         musicSource.Stop();
+        musicSource.clip = musicClips[_song];
+        musicSource.Play();
+    }
 
-        musicSource.PlayOneShot(musicClips[_song]);
+    public void StopMusic()
+    {
+        musicSource.Stop();
+    }
+
+    public void PlayMusic()
+    {
+        musicSource.Play();
+    }
+
+    public void PlayVFX(AudioClip _sfx)
+    {
+        SFXSource.PlayOneShot(_sfx);
     }
 }

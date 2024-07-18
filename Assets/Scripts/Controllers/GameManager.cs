@@ -33,10 +33,12 @@ public class GameManager : MonoBehaviour
     public bool isInGame;
     [SerializeField] int levelsUnlocked;
     [SerializeField] GameObject playerRef;
+    public GameObject interactBtn;
+    public int levelobjectsCollected;
     [HideInInspector] public bool levelStarted;
     [HideInInspector] public bool gameIsPaused;
-    [SerializeField]GameObject currentSpawnVFX;
-    [SerializeField] RespawnManager currentRespawn;
+    GameObject currentSpawnVFX;
+    RespawnManager currentRespawn;
 
     [Header("Level select manager")]
     [SerializeField] List<GameObject> levels;
@@ -233,6 +235,24 @@ public class GameManager : MonoBehaviour
                 levelButton[3].interactable = true;
                 break;
         }
+    }
+
+    // Método para carregar telas de cena do jogo
+    public IEnumerator GameToNextLevel()
+    {
+        yield return new WaitForSeconds(1f);
+        FadeIn();
+        isInGame = false;
+        yield return new WaitForSeconds(1f);
+        SetPlayer();
+        SwitchScreen(GameScreens.levelSelect);
+        SceneManager.LoadScene("MainMenu");
+        levels[currentLevelActive].SetActive(false);
+        levels[currentLevelActive + 1].SetActive(true);
+        currentLevelActive++;
+        EventSystem.current.SetSelectedGameObject(levelBtnSelected[currentLevelActive]);
+        FadeOut();
+        playerRef.transform.position = Vector2.zero;
     }
 
     public void PlayLevel(string _levelName)

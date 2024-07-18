@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9118812861412638906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7976973543027505193}
+  m_Layer: 0
+  m_Name: PowerUp Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7976973543027505193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9118812861412638906}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6020245711310791805}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8394174619221066034
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1812597023005949604, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_Name
+      value: PowerUpWheel Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747973913377416767, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2365554247771849547}
+    - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826560196278069117, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826560196278069117, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826560196278069117, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 339474113433359966, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7976973543027505193}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1812597023005949604, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 2365554247771849547}
+  m_SourcePrefab: {fileID: 100100000, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+--- !u!4 &6020245711310791805 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+  m_PrefabInstance: {fileID: 8394174619221066034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7879533755637350294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1812597023005949604, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+  m_PrefabInstance: {fileID: 8394174619221066034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2365554247771849547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879533755637350294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28eead668e656f64c9f0ecba1656c2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 1
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2365554247771849547}
+        m_TargetAssemblyTypeName: Wheel, Assembly-CSharp
+        m_MethodName: SpinWheel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  dialogue: {fileID: 8878322942884969152}
+  anim: {fileID: 0}
+  powerUpSpawn: {fileID: 7976973543027505193}
+  powerUp: {fileID: 0}
+--- !u!114 &8878322942884969152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1101194957841923058, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+  m_PrefabInstance: {fileID: 8394174619221066034}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f723d0130c1dc784782b9fa65f45507e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

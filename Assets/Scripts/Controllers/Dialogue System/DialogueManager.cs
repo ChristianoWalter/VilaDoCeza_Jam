@@ -28,8 +28,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] DialogueData[] dialogueData;
     public UnityEvent[] lastScriptAction;
     DialogueStates dialogueStates;
-    int scriptIndex;
-    int dialogueIndex;
+    public int scriptIndex;
+    public int dialogueIndex;
 
     // Variáveis referentes às animações de escrita e da caixa de diálogo
     [Header("Animation Variables")]
@@ -101,10 +101,11 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueStates = DialogueStates.finished;
         GameManager.instance.isInGame = true;
-        if (lastScriptAction.Length == 0)
+        if (lastScriptAction.Length != 0)
         {
             if (lastScriptAction[dialogueIndex] != null) lastScriptAction[dialogueIndex].Invoke();
         }
+        scriptIndex = 0;
         open = false;
         characterName.text = "";
         characterScript.text = "";

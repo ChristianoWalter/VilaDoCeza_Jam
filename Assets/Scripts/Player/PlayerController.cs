@@ -61,6 +61,7 @@ public class PlayerController : HealthController
     [Header("SFX Controls")]
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] sfx;
+    [SerializeField] AudioManager audioManager;
 
     // Componentes externos que serão atrelados ao script externamente
     [Header("Components")]
@@ -257,6 +258,7 @@ public class PlayerController : HealthController
         isInvencible = true;
         PausePlayerMovement(true);
         gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+        audioManager.StopMusic();
         audioSource.PlayOneShot(sfx[0]);
 
         if (currentHealth > 0)
@@ -278,6 +280,7 @@ public class PlayerController : HealthController
         isInvencible = false;
         gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
         yield return new WaitForSeconds(1f);
+        audioManager.PlayMusic();
         GameManager.instance.FadeOut();
         PausePlayerMovement(false);
     }
