@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  currentHealth: 0
   healthBar: {fileID: 0}
   lifeCounter: {fileID: 0}
   damage: 1
@@ -120,8 +119,8 @@ MonoBehaviour:
   walkPoints:
   - {fileID: 8073761076052337388}
   - {fileID: 1953207641525423949}
-  moveSpeed: 8
-  waitForPoints: 2
+  moveSpeed: 2
+  waitForPoints: 3
   rb: {fileID: 7616693798982246434}
   enemyAnim: {fileID: 8366683833858286386}
 --- !u!1 &600370204051202221
@@ -258,8 +257,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 71740831
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f37ed2002f3a13c4c9773b0bed69c527, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -325,7 +324,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.052977085, y: 0.052927077}
+  m_Offset: {x: 0.029559135, y: 0.052927077}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -336,5 +335,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5966854, y: 0.12587821}
+  m_Size: {x: 0.43161297, y: 0.12587821}
   m_EdgeRadius: 0

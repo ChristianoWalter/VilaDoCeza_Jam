@@ -57,6 +57,11 @@ public class PlayerController : HealthController
     [SerializeField] float clownReloadTime;
     float timeToReload;
 
+    // Variáveis para controle de efeitos sonoros
+    [Header("SFX Controls")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] sfx;
+
     // Componentes externos que serão atrelados ao script externamente
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
@@ -72,8 +77,9 @@ public class PlayerController : HealthController
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else Destroy(gameObject);       
+        else Destroy(gameObject);
 
+        afterPauseGravity = rb.gravityScale;
         canMove = true;
     }
 
@@ -141,7 +147,6 @@ public class PlayerController : HealthController
         {
             canMove = false;
             afterPauseSpeed = rb.velocity;
-            afterPauseGravity = rb.gravityScale;
             rb.velocity = Vector2.zero;
             rb.gravityScale = 0f;
         }
@@ -253,27 +258,32 @@ public class PlayerController : HealthController
     {
         base.DamageEffect();
         dead = true;
-        anim.SetBool("Respawning", false);
+        anim.SetBool("Dead", dead);
         isInvencible = true;
-        anim.SetTrigger("Death");
+        PausePlayerMovement(true);
+        gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+        SwitchPlayerForm(PlayerForms.normal);
+        audioSource.Play();
 
-        if (currentHealth > 0) StartCoroutine(Respawn());
+        if (currentHealth > 0)
+        {
+            StartCoroutine(Respawn());
+        }
     }
 
     // Rotina para ressurgimento do player após dano
     IEnumerator Respawn()
     {
-        PausePlayerMovement(true);
-        gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
-        //GameManager.instance.SwitchScreen(GameScreens.loading);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        GameManager.instance.FadeIn();
+        yield return new WaitForSeconds(1f);
         transform.position = respawnPoint;
-        anim.SetBool("Respawning", true);
-        SwitchPlayerForm(PlayerForms.normal);
-        isInvencible = false;
-        //GameManager.instance.SwitchScreen(GameScreens.gameUI);
-        gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
         dead = false;
+        anim.SetBool("Dead", dead);
+        isInvencible = false;
+        gameObject.GetComponent<CapsuleCollider2D>().isTrigger = false;
+        yield return new WaitForSeconds(1f);
+        GameManager.instance.FadeOut();
         PausePlayerMovement(false);
     }
 
@@ -281,8 +291,7 @@ public class PlayerController : HealthController
     {
         base.Death();
 
-        PausePlayerMovement(true);
-        StartCoroutine(DeathRoutine());
+        GameManager.instance.GameBackMainMenu();
     }
 
     // Rotina para sequência de morte

@@ -67,6 +67,7 @@ public class BaseEnemy : HealthController
             }
         }
 
+        enemyAnim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         if ((rb.velocity.x > 0 && transform.localScale.x < 0) || (rb.velocity.x < 0 && transform.localScale.x > 0))
         {
             Vector2 _localScale = transform.localScale;

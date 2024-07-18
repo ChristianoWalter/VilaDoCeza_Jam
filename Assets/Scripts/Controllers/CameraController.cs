@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] PlayerController player;
-    [SerializeField] BoxCollider2D boundBox;
+    public BoxCollider2D boundBox;
     private float halfHeight, halfWidth;
 
     // Start is called before the first frame update
@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (boundBox == null) return;
         if (player == null)
         {
             player = FindObjectOfType<PlayerController>();

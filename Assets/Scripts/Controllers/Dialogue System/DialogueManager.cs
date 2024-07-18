@@ -1,12 +1,7 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public enum DialogueStates
@@ -20,7 +15,7 @@ public class DialogueManager : MonoBehaviour
 {
     // Variáveis externas para visual da UI
     [Header("UI Elements")]
-    [SerializeField] GameObject DialogPanel;
+    [SerializeField] GameObject dialoguePanel;
     [SerializeField] Button nextDialogBtn;
     [SerializeField] Image background;
     [SerializeField] TextMeshProUGUI characterName;
@@ -29,7 +24,7 @@ public class DialogueManager : MonoBehaviour
 
     // Variáveis para manutenção e desenrolar do diálogo
     [Header("Dialogues variables manager")]
-    [SerializeField] bool autoStart;
+    public bool autoStart;
     [SerializeField] DialogueData[] dialogueData;
     public UnityEvent[] lastScriptAction;
     DialogueStates dialogueStates;
@@ -51,12 +46,12 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         background.fillAmount = 0f;
-        if (autoStart) StartDialogue();
+        //if (autoStart) StartDialogue();
     }
 
     private void Update()
     {
-        if (!DialogPanel.activeSelf) return;
+        if (dialoguePanel == null) return;
 
         if (open)
             background.fillAmount = Mathf.Lerp(background.fillAmount, 1f, imageSpeed * Time.deltaTime);
@@ -66,7 +61,7 @@ public class DialogueManager : MonoBehaviour
             if (background.fillAmount < 0.05f)
             {
                 background.fillAmount = 0f;
-                DialogPanel.SetActive(false);
+                dialoguePanel.SetActive(false);
             }
         }
     }
@@ -74,11 +69,12 @@ public class DialogueManager : MonoBehaviour
     // Método para ativar o dialogo
     public void StartDialogue()
     {
-        if (dialogueData.Length == dialogueIndex) return;
+        if (dialogueData.Length == dialogueIndex || GameManager.instance.gameIsPaused) return;
 
-        GameManager.instance.SetDialogueBtn(true);
+        GameManager.instance.isInGame = false;
+        GameManager.instance.SetDialogueBtn(true, nextDialogBtn.gameObject);
         PlayerController.instance.PausePlayerMovement(true);
-        DialogPanel.SetActive(true);
+        dialoguePanel.SetActive(true);
         open = true;
         NextText();
     }
@@ -104,14 +100,15 @@ public class DialogueManager : MonoBehaviour
     public void FinishDialogue()
     {
         dialogueStates = DialogueStates.finished;
-        if (lastScriptAction.Length != 0)
+        GameManager.instance.isInGame = true;
+        if (lastScriptAction.Length == 0)
         {
             if (lastScriptAction[dialogueIndex] != null) lastScriptAction[dialogueIndex].Invoke();
         }
         open = false;
         characterName.text = "";
         characterScript.text = "";
-        GameManager.instance.SetDialogueBtn(false);
+        GameManager.instance.SetDialogueBtn(false, null);
         PlayerController.instance.PausePlayerMovement(false);
     }
 

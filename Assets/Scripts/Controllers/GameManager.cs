@@ -27,13 +27,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pauseMenuPanel;
     [SerializeField] GameObject configPanel;
     [SerializeField] GameObject levelSelectPanel;
-    [SerializeField] GameObject loadingPanel;
+    [SerializeField] GameObject transitionCanvas;
 
     [Header("Game items manager")]
     public bool isInGame;
     [SerializeField] int levelsUnlocked;
     [SerializeField] GameObject playerRef;
-    bool gameIsPaused;
+    [HideInInspector] public bool levelStarted;
+    [HideInInspector] public bool gameIsPaused;
 
     [Header("Level select manager")]
     [SerializeField] List<GameObject> levels;
@@ -41,9 +42,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pauseBtnSelected;
     [SerializeField] GameObject mainMenuBtnSelected;
     [SerializeField] GameObject configBtnSelected;
-    [SerializeField] GameObject dialogBtn;
     [SerializeField] GameObject[] levelBtnSelected;
     int currentLevelActive;
+    [SerializeField] Animator transitionAnim;
 
     private void Awake()
     {
@@ -88,14 +89,14 @@ public class GameManager : MonoBehaviour
         if (!gameIsPaused)
         {
             SwitchScreen(GameScreens.pauseMenu);
-            gameIsPaused = true;
             PlayerController.instance.PausePlayerMovement(true);
+            gameIsPaused = true;
         }
         else
         {
             SwitchScreen(GameScreens.gameUI);
-            gameIsPaused = false;
             PlayerController.instance.PausePlayerMovement(false);
+            gameIsPaused = false;
         }
     }
 
@@ -109,7 +110,6 @@ public class GameManager : MonoBehaviour
         pauseMenuPanel.SetActive(false);
         configPanel.SetActive(false);
         levelSelectPanel.SetActive(false);
-        loadingPanel.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
 
 
@@ -134,9 +134,6 @@ public class GameManager : MonoBehaviour
                 levelSelectPanel.SetActive(true);
                 EventSystem.current.SetSelectedGameObject(levelBtnSelected[currentLevelActive]);
                 break;
-            case GameScreens.loading:
-                loadingPanel.SetActive(true);
-                break;
         }
     }
 
@@ -144,20 +141,29 @@ public class GameManager : MonoBehaviour
     public void MainMenuStart()
     {
         isInGame = false;
-        PlayerController.instance.PausePlayerMovement(true);
-        SwitchScreen(GameScreens.mainMenu);
+        SetPlayer();
         playerRef.transform.position = Vector2.zero;
-        playerRef.SetActive(false);
+        SwitchScreen(GameScreens.mainMenu);
     }
     
     // Método para ser chamado por botão e executar mudança de jogo para tela de menu principal
     public void SwitchGameToMainMenu()
     {
+        StartCoroutine(GameBackMainMenu());
+    }
+
+    public IEnumerator GameBackMainMenu()
+    {
+        FadeIn();
         isInGame = false;
+        yield return new WaitForSeconds(1f);
+        SetPlayer();
+        gameIsPaused = false;
         SceneManager.LoadScene("MainMenu");
         SwitchScreen(GameScreens.mainMenu);
+        yield return new WaitForSeconds(1f);
+        FadeOut();
         playerRef.transform.position = Vector2.zero;
-        playerRef.SetActive(false);
     }
     
     // Método para ser chamado por botão e executar mudança para tela de menu principal
@@ -177,12 +183,6 @@ public class GameManager : MonoBehaviour
     {
         SwitchScreen(GameScreens.config);
     }
-
-    // Método para ser chamado por botão e executar mudança para tela de loading
-    public void SwitchToLoading()
-    {
-        SwitchScreen(GameScreens.loading);
-    }
     
     // Método para ser chamado por botão e executar mudança para tela de seleção de mapa
     public void SwitchToLevelSelect()
@@ -190,11 +190,11 @@ public class GameManager : MonoBehaviour
         SwitchScreen(GameScreens.levelSelect);
     }
 
-    public void SetDialogueBtn(bool _active)
+    public void SetDialogueBtn(bool _active, GameObject _btn)
     {
         if (_active)
         {
-            EventSystem.current.SetSelectedGameObject(dialogBtn);
+            EventSystem.current.SetSelectedGameObject(_btn);
             isInGame = false;
         }
         else 
@@ -235,13 +235,57 @@ public class GameManager : MonoBehaviour
 
     public void PlayLevel(string _levelName)
     {
-        SceneManager.LoadScene(_levelName);
-        SwitchScreen(GameScreens.gameUI);
+        StartCoroutine(LoadLevel(_levelName));
+    }
 
+    // Rotina para carregar cena
+    IEnumerator LoadLevel(string _levelName)
+    {
+        FadeIn();
+        levelStarted = false;
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(_levelName);
         playerRef.transform.position = Vector2.zero;
-        playerRef.SetActive(true);
-        PlayerController.instance.PausePlayerMovement(false);
+        SwitchScreen(GameScreens.gameUI);
         isInGame = true;
+        yield return new WaitForSeconds(1f);
+        FadeOut();
+        SetPlayer();
+        playerRef.SetActive(true);
+    }
+
+    // Método utilizado para mudar controle do player de acordo com o modo de jogo
+    void SetPlayer()
+    {
+        playerRef.SetActive(isInGame);
+        PlayerController.instance.PausePlayerMovement(!isInGame);
+    }
+
+    // Método responsável por iniciar transição
+    public void FadeIn()
+    {
+        transitionCanvas.SetActive(true);
+        transitionAnim.SetTrigger("FadeIn");
+    }
+
+    // Método responsável por finalizar transição
+    public void FadeOut()
+    {
+        transitionAnim.SetTrigger("FadeOut");
+        StartCoroutine(FadeOutRoutine());
+    }
+
+    // Finaliza transição levando em conta o tempo de animação
+    IEnumerator FadeOutRoutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+        transitionCanvas.SetActive(false);
+        if (!levelStarted && FindObjectOfType<DialogueManager>())
+        {
+            levelStarted = true;
+            DialogueManager dRef = FindObjectOfType<DialogueManager>();
+            if(dRef.autoStart) dRef.StartDialogue();
+        }
     }
 
     // Método para mudança de level no level select
