@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI characterName;
     [SerializeField] TextMeshProUGUI characterScript;
     [SerializeField] Image characterImage;
+    AudioManager audioManager;
 
     // Variáveis para manutenção e desenrolar do diálogo
     [Header("Dialogues variables manager")]
@@ -41,12 +42,12 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         nextDialogBtn.onClick.AddListener(OnFinishedScript);
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Start()
     {
         background.fillAmount = 0f;
-        //if (autoStart) StartDialogue();
     }
 
     private void Update()
@@ -71,6 +72,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogueData.Length == dialogueIndex || GameManager.instance.gameIsPaused) return;
 
+        audioManager.ChangeMusic(2);
         GameManager.instance.isInGame = false;
         GameManager.instance.SetDialogueBtn(true, nextDialogBtn.gameObject);
         PlayerController.instance.PausePlayerMovement(true);
@@ -101,16 +103,18 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueStates = DialogueStates.finished;
         GameManager.instance.isInGame = true;
-        if (lastScriptAction.Length != 0)
-        {
-            if (lastScriptAction[dialogueIndex] != null) lastScriptAction[dialogueIndex].Invoke();
-        }
         scriptIndex = 0;
         open = false;
         characterName.text = "";
         characterScript.text = "";
         GameManager.instance.SetDialogueBtn(false, null);
         PlayerController.instance.PausePlayerMovement(false);
+        audioManager.ChangeMusic(1);
+
+        if (lastScriptAction.Length != 0)
+        {
+            if (lastScriptAction[dialogueIndex] != null) lastScriptAction[dialogueIndex].Invoke();
+        }
     }
 
     // Método que ativa diálogo

@@ -202,6 +202,7 @@ public class PlayerController : HealthController
                     break;
             }
             timeToReload = currentTimeToReload;
+            anim.SetFloat("ReloadAttack", timeToReload);
             reloadUI.UpdateFill(currentTimeToReload / currentTimeToReload);
         } 
     }
@@ -217,6 +218,7 @@ public class PlayerController : HealthController
         }
         canAttack = true;
         timeToReload = 0f;
+        anim.SetFloat("ReloadAttack", timeToReload);
         reloadUI.UpdateFill(timeToReload / currentTimeToReload);
     }
     #endregion
@@ -273,6 +275,7 @@ public class PlayerController : HealthController
         yield return new WaitForSeconds(1f);
         GameManager.instance.FadeIn();
         yield return new WaitForSeconds(1f);
+        transform.SetParent(null);
         SwitchPlayerForm(PlayerForms.normal);
         transform.position = respawnPoint;
         dead = false;

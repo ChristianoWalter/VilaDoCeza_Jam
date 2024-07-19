@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e81e8e04a2bad4cbec99c94a3263a0, type: 3}
+  m_Name: FinalDialogue
+  m_EditorClassIdentifier: 
+  talkScript:
+  - characterName: Puppet
+    dialogueTxt: "Isso foi.. EXPL\xCANDIDO!!! Diz que voc\xEA est\xE1 gostando dessa
+      mem\xF3ria tanto quanto eu!"
+    characterImage: {fileID: 0}
+  - characterName: Puppet
+    dialogueTxt: "Maravilhoso conseguir superar medos e traumas passados e se fortalecer
+      com eles, n\xE3o acha?"
+    characterImage: {fileID: 0}
+  - characterName: Puppet
+    dialogueTxt: "Mas convenhamos pequenino, ter medo de uma flor t\xE3o bela s\xF3
+      por conta de uns espinhos?"
+    characterImage: {fileID: 0}
+  - characterName: Puppet
+    dialogueTxt: "Vamos fazer assim, para que os medos e traumas n\xE3o retornem,
+      repitam comigo crian\xE7ada:"
+    characterImage: {fileID: 0}
+  - characterName: Puppet
+    dialogueTxt: "X\xD4 MEDO!!!"
+    characterImage: {fileID: 0}
+  - characterName: Puppet
+    dialogueTxt: "Muito bem!! Agora pequenino, sua vez, repita comigo para o medo
+      n\xE3o voltar:"
+    characterImage: {fileID: 0}
+  - characterName: Puppet
+    dialogueTxt: "X\xD4 MEDO!!! ..melhor repetir ein."
+    characterImage: {fileID: 0}
+  - characterName: Adriano
+    dialogueTxt: "X\xF4.. X\xF4 medo!"
+    characterImage: {fileID: 0}
+  - characterName: Puppet
+    dialogueTxt: "Muito bem pequenino!! Aposto que sua m\xE3ezinha ficaria muito
+      feliz com sua conquista."
+    characterImage: {fileID: 0}
+  - characterName: Puppet
+    dialogueTxt: "Assim como eu estou! Afinal de contas, esse programa \xE9 pra ajudar
+      voc\xEAs e saborear essas suas mem\xF3rias!"
+    characterImage: {fileID: 0}

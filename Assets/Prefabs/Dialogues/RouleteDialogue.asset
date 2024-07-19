@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e81e8e04a2bad4cbec99c94a3263a0, type: 3}
+  m_Name: RouleteDialogue
+  m_EditorClassIdentifier: 
+  talkScript:
+  - characterName: Puppet
+    dialogueTxt: "Olha s\xF3!! Voc\xEA encoutrou sua velha roleta."
+    characterImage: {fileID: 0}
+  - characterName: Puppet
+    dialogueTxt: "Toda vez que girar voc\xEA receber\xE1 uma fantasia diferente,
+      ent\xE3o, boa sorte..."
+    characterImage: {fileID: 0}

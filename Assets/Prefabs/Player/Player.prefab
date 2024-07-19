@@ -103,7 +103,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 71740831
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -284,18 +284,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1e04d0442609f49ada9a33ccf8d704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 6
+  dead: 0
   healthBar: {fileID: 0}
   lifeCounter: {fileID: 0}
   canMove: 0
   moveSpeed: 8
-  jumpForce: 8
+  jumpForce: 10
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   jumpDamage: 1
-  jumpForceAfterDamage: 5
-  playerForms: 1
+  jumpForceAfterDamage: 8
+  playerForms: 0
   enemiesMask:
     serializedVersion: 2
     m_Bits: 128
@@ -310,6 +311,7 @@ MonoBehaviour:
   audioSource: {fileID: 8398999153639515413}
   sfx:
   - {fileID: 8300000, guid: 3ff56aa84de39c042b3ed0be41fa13fa, type: 3}
+  audioManager: {fileID: 0}
   rb: {fileID: 472579143185797487}
   foot: {fileID: 3262516795922551111}
   attackPoint: {fileID: 2758758028517953467}
@@ -350,7 +352,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 5744359952091704577}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d5a64b3ba796619408e8c948f1022608, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -453,6 +455,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7dab1ab1-400a-4389-9f32-688207f492bf
     m_ActionName: Player/Ranged Attack Action[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c8f8c15-0b3c-4aa3-a8ff-d9b250302a4d
+    m_ActionName: Player/Interact Action[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -483,7 +489,7 @@ Transform:
   m_GameObject: {fileID: 8743445418220918237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.81, y: 0.09, z: 0}
+  m_LocalPosition: {x: 0.81, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

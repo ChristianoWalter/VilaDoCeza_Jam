@@ -251,6 +251,7 @@ public class GameManager : MonoBehaviour
         levels[currentLevelActive + 1].SetActive(true);
         currentLevelActive++;
         EventSystem.current.SetSelectedGameObject(levelBtnSelected[currentLevelActive]);
+        SaveProgress();
         FadeOut();
         playerRef.transform.position = Vector2.zero;
     }
