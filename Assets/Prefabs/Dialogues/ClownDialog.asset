@@ -15,4 +15,4 @@ MonoBehaviour:
   talkScript:
   - characterName: Adriano
     dialogueTxt: "Eu lembro desse chap\xE9u... Que estranho.. que.. nost\xE1lgico..."
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}

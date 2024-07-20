@@ -15,13 +15,15 @@ public class DialogueManager : MonoBehaviour
 {
     // Variáveis externas para visual da UI
     [Header("UI Elements")]
-    [SerializeField] GameObject dialoguePanel;
-    [SerializeField] Button nextDialogBtn;
-    [SerializeField] Image background;
-    [SerializeField] TextMeshProUGUI characterName;
-    [SerializeField] TextMeshProUGUI characterScript;
-    [SerializeField] Image characterImage;
+    GameObject dialoguePanel;
+    Button nextDialogBtn;
+    Image background;
+    GameObject textBackground;
+    TextMeshProUGUI characterName;
+    TextMeshProUGUI characterScript;
+    Image characterImage;
     AudioManager audioManager;
+    GameManager gameManager;
 
     // Variáveis para manutenção e desenrolar do diálogo
     [Header("Dialogues variables manager")]
@@ -37,22 +39,33 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float typeDelay;
     string fullText;
     [SerializeField] float imageSpeed;
+    bool isInDialog;
     bool open;
 
     private void Awake()
     {
-        nextDialogBtn.onClick.AddListener(OnFinishedScript);
         audioManager = FindObjectOfType<AudioManager>();
+        gameManager = FindObjectOfType<GameManager>();
+        dialoguePanel = gameManager.dialoguePanel;
+        nextDialogBtn = gameManager.nextDialogBtn;
+        background = gameManager.background;
+        textBackground = gameManager.textBackground;
+        characterName = gameManager.characterName;
+        characterScript = gameManager.characterScript;
+        characterImage = gameManager.characterImage;
     }
 
     private void Start()
     {
+        //nextDialogBtn.onClick.AddListener(OnFinishedScript);
         background.fillAmount = 0f;
+        if (autoStart) StartDialogue();
     }
 
     private void Update()
     {
         if (dialoguePanel == null) return;
+        if (!isInDialog) return;
 
         if (open)
             background.fillAmount = Mathf.Lerp(background.fillAmount, 1f, imageSpeed * Time.deltaTime);
@@ -61,6 +74,7 @@ public class DialogueManager : MonoBehaviour
             background.fillAmount = Mathf.Lerp(background.fillAmount, 0f, imageSpeed * Time.deltaTime);
             if (background.fillAmount < 0.05f)
             {
+                isInDialog = false;
                 background.fillAmount = 0f;
                 dialoguePanel.SetActive(false);
             }
@@ -72,11 +86,16 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogueData.Length == dialogueIndex || GameManager.instance.gameIsPaused) return;
 
+        isInDialog = true;
+        nextDialogBtn.onClick.AddListener(OnFinishedScript);
         audioManager.ChangeMusic(2);
         GameManager.instance.isInGame = false;
         GameManager.instance.SetDialogueBtn(true, nextDialogBtn.gameObject);
         PlayerController.instance.PausePlayerMovement(true);
         dialoguePanel.SetActive(true);
+        textBackground.SetActive(true);
+        characterImage.gameObject.SetActive(true);
+        if (autoStart) background.fillAmount = 1f;
         open = true;
         NextText();
     }
@@ -107,6 +126,8 @@ public class DialogueManager : MonoBehaviour
         open = false;
         characterName.text = "";
         characterScript.text = "";
+        textBackground.SetActive(false);
+        characterImage.gameObject.SetActive(false);
         GameManager.instance.SetDialogueBtn(false, null);
         PlayerController.instance.PausePlayerMovement(false);
         audioManager.ChangeMusic(1);

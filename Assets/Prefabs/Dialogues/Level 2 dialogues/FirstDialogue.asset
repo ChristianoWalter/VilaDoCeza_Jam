@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e81e8e04a2bad4cbec99c94a3263a0, type: 3}
+  m_Name: FirstDialogue
+  m_EditorClassIdentifier: 
+  talkScript:
+  - characterName: Boboneco
+    dialogueTxt: "Bem vindos ao pr\xF3ximo epis\xF3dio!!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: Nossa!! Que enorme campo de rosas!!
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: Eu adoraria de umas rosas para enfeitar minha casinha.
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "J\xE1 sei!! Que tal como seu pr\xF3ximo desafio voc\xEA trazer
+      duas rosas para mim!?!?"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Adriano
+    dialogueTxt: ...
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Ah vamos l\xE1! N\xE3o seja t\xEDmido, rosas s\xE3o t\xE3o lindas!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Crian\xE7ada! Repitam comigo: V\xC1 EMBORA VERGONHA!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "N\xE3o precisa.. eu vou..."
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "EXXXPL\xCANDIDO!!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Ent\xE3o eu e a crian\xE7ada estaremos esperando pela rosa, s\xF3
+      tome cuidado com os espinhos ein!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}

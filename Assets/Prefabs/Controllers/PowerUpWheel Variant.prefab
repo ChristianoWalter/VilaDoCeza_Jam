@@ -271,15 +271,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7211085647899127200, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
       propertyPath: m_Size.x
-      value: 1.9669733
+      value: 0.90585613
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211085647899127200, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5873523
       objectReference: {fileID: 0}
     - target: {fileID: 7211085647899127200, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
       propertyPath: m_Offset.x
-      value: -0.4705367
+      value: 0.060021877
       objectReference: {fileID: 0}
     - target: {fileID: 7211085647899127200, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
       propertyPath: m_Offset.y
-      value: 0.27707624
+      value: -0.20632339
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 339474113433359966, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
@@ -338,6 +342,7 @@ MonoBehaviour:
         m_CallState: 2
   dialogue: {fileID: 8878322942884969152}
   anim: {fileID: 8834411374131348821}
+  playerIsColliding: 0
   playerForms: 0
   objectsToNextLevel: 0
   powerUpSpawn: {fileID: 7976973543027505193}

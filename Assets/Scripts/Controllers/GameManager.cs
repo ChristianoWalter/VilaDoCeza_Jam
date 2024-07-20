@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
+using TMPro;
 public enum GameScreens
 {
     gameUI,
@@ -14,21 +15,24 @@ public enum GameScreens
     pauseMenu,
     config,
     levelSelect,
-    loading
+    controls
 }
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    // Variáveis para controle de navegção de telas
     [Header("Screens Manager")]
     [SerializeField] GameObject gamePanel;
     [SerializeField] GameObject mainMenuPanel;
     [SerializeField] GameObject pauseMenuPanel;
     [SerializeField] GameObject configPanel;
     [SerializeField] GameObject levelSelectPanel;
+    [SerializeField] GameObject controlsPanel;
     [SerializeField] GameObject transitionCanvas;
 
+    // Variáveis para controle de jogo no geral
     [Header("Game items manager")]
     public bool isInGame;
     [SerializeField] int levelsUnlocked;
@@ -40,15 +44,27 @@ public class GameManager : MonoBehaviour
     GameObject currentSpawnVFX;
     RespawnManager currentRespawn;
 
+    // Variáveis para controle e seleção de níveis
     [Header("Level select manager")]
     [SerializeField] List<GameObject> levels;
     [SerializeField] List<Button> levelButton;
     [SerializeField] GameObject pauseBtnSelected;
     [SerializeField] GameObject mainMenuBtnSelected;
     [SerializeField] GameObject configBtnSelected;
+    [SerializeField] GameObject controlsBtnSelected;
     [SerializeField] GameObject[] levelBtnSelected;
     int currentLevelActive;
     [SerializeField] Animator transitionAnim;
+
+    // Variáveis para controle de diálogo
+    [Header ("Dialogue UI Variables")]
+    public GameObject dialoguePanel;
+    public Button nextDialogBtn;
+    public Image background;
+    public GameObject textBackground;
+    public TextMeshProUGUI characterName;
+    public TextMeshProUGUI characterScript;
+    public Image characterImage;
 
     private void Awake()
     {
@@ -114,6 +130,7 @@ public class GameManager : MonoBehaviour
         pauseMenuPanel.SetActive(false);
         configPanel.SetActive(false);
         levelSelectPanel.SetActive(false);
+        controlsPanel.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
 
 
@@ -137,6 +154,10 @@ public class GameManager : MonoBehaviour
             case GameScreens.levelSelect:
                 levelSelectPanel.SetActive(true);
                 EventSystem.current.SetSelectedGameObject(levelBtnSelected[currentLevelActive]);
+                break;
+            case GameScreens.controls:
+                controlsPanel.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(controlsBtnSelected);
                 break;
         }
     }
@@ -214,26 +235,9 @@ public class GameManager : MonoBehaviour
     // Método direcionado à carregar progresso do jogo
     public void LoadProgress()
     {
-        switch (levelsUnlocked)
+        for (int i = 0; i < levelsUnlocked; i++)
         {
-            case 1:
-                levelButton[0].interactable = true;
-                break;
-            case 2:
-                levelButton[0].interactable = true;
-                levelButton[1].interactable = true;
-                break;
-            case 3:
-                levelButton[0].interactable = true;
-                levelButton[1].interactable = true;
-                levelButton[2].interactable = true;
-                break;
-            case 4:
-                levelButton[0].interactable = true;
-                levelButton[1].interactable = true;
-                levelButton[2].interactable = true;
-                levelButton[3].interactable = true;
-                break;
+            levelButton[i].interactable = true;
         }
     }
 
@@ -253,12 +257,14 @@ public class GameManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(levelBtnSelected[currentLevelActive]);
         SaveProgress();
         FadeOut();
+        LoadProgress();
         playerRef.transform.position = Vector2.zero;
     }
 
     public void PlayLevel(string _levelName)
     {
         StartCoroutine(LoadLevel(_levelName));
+        PlayerController.instance.SetPlayerToNewLvl();
     }
 
     // Rotina para carregar cena
@@ -301,14 +307,14 @@ public class GameManager : MonoBehaviour
     // Finaliza transição levando em conta o tempo de animação
     IEnumerator FadeOutRoutine()
     {
-        yield return new WaitForSeconds(1.5f);
-        transitionCanvas.SetActive(false);
-        if (!levelStarted && FindObjectOfType<DialogueManager>())
+       /* if (!levelStarted && GameObject.FindGameObjectWithTag("LevelDialogue"))
         {
             levelStarted = true;
-            DialogueManager dRef = FindObjectOfType<DialogueManager>();
+            DialogueManager dRef = GameObject.FindGameObjectWithTag("LevelDialogue").GetComponent<DialogueManager>();
             if(dRef.autoStart) dRef.StartDialogue();
-        }
+        }*/
+        yield return new WaitForSeconds(1f);
+        transitionCanvas.SetActive(false);
     }
 
     // Método para mudança de level no level select
@@ -336,6 +342,14 @@ public class GameManager : MonoBehaviour
         if (currentSpawnVFX != null) Destroy(currentSpawnVFX);
         currentRespawn = _respawnRef;
         currentSpawnVFX = _currentVFX;
+    }
+
+    // Método para desbloquear todos os níveis de jogo
+    public void UnlockAllLevels()
+    {
+        levelsUnlocked = levels.Count - 1;
+        LoadProgress();
+        SaveProgress();
     }
     #endregion
 

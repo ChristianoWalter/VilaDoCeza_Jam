@@ -42,7 +42,7 @@ public class PlayerController : HealthController
     [SerializeField] HabilitiesUIControl reloadUI;
 
     // Variável para retornar ao spawnpoint quando ferido
-    [HideInInspector] public Vector2 respawnPoint;
+    [HideInInspector] public Vector2 respawnPoint = new Vector2(0, .1f);
 
 
     // Variáveis referentes ao ataque da segunda transformação
@@ -155,12 +155,22 @@ public class PlayerController : HealthController
     }
     #endregion
 
+    // Método para alterar variáveis do player ao iniciar uma fase
+    public void SetPlayerToNewLvl()
+    {
+        if (dead)
+        {
+            dead = false;
+            anim.SetBool("Dead", dead);
+        }
+        currentHealth = maxHealth;
+    }
+
     // Método destinado à transformação do player
     public void SwitchPlayerForm(PlayerForms _newForm)
     {
         playerForms = _newForm;
         anim.SetInteger("PlayerForm", (int)_newForm);
-        //StopAllCoroutines();
         switch (_newForm)
         {
             case PlayerForms.normal:
@@ -257,14 +267,14 @@ public class PlayerController : HealthController
         base.DamageEffect();
         dead = true;
         anim.SetBool("Dead", dead);
-        isInvencible = true;
         PausePlayerMovement(true);
-        gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
         audioManager.StopMusic();
-        audioSource.PlayOneShot(sfx[0]);
+        audioManager.PlaySFX(sfx[0]);
 
         if (currentHealth > 0)
         {
+            isInvencible = true;
+            gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
             StartCoroutine(Respawn());
         }
     }
@@ -290,9 +300,7 @@ public class PlayerController : HealthController
 
     protected override void Death()
     {
-        base.Death();
-
-        GameManager.instance.GameBackMainMenu();
+        GameManager.instance.SwitchGameToMainMenu();
     }
 
     // Rotina para sequência de morte

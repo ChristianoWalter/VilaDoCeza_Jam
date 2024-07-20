@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e81e8e04a2bad4cbec99c94a3263a0, type: 3}
+  m_Name: FirstDialogue
+  m_EditorClassIdentifier: 
+  talkScript:
+  - characterName: Boboneco
+    dialogueTxt: "Ol\xE1 crian\xE7ada!! Bem vindos ao epis\xF3dio 3!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: Hoje temos um desafio bem legal para enfrentar, o TAXINHAS CHALLENGE!!!
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Depois que um programa, muito parecido com o Puppet TV, mas deixando
+      claro que n\xE3o foi o Puppet TV, fez esse desafio, virou febre por a\xED."
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Ent\xE3o, o pequenino teve a brilhante ideia de espalhar taxinhas
+      por a\xED pra gente brincar desse desafio!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "N\xE3o lembro de ter tido essa ideia.."
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Oras, mas as taxinhas foram espalhadas j\xE1! Vamos nessa pequenino!
+      Atravessar esse circuito sem pisar nas taxinhas!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Repitam comigo crian\xE7ada: TAXINHAS CHALLENGE!!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}

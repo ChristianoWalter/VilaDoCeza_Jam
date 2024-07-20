@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: RouleteDialogue
   m_EditorClassIdentifier: 
   talkScript:
-  - characterName: Puppet
-    dialogueTxt: "Olha s\xF3!! Voc\xEA encoutrou sua velha roleta."
-    characterImage: {fileID: 0}
-  - characterName: Puppet
-    dialogueTxt: "Toda vez que girar voc\xEA receber\xE1 uma fantasia diferente,
-      ent\xE3o, boa sorte..."
+  - characterName: Boboneco
+    dialogueTxt: "Olha s\xF3!! Voc\xEA encoutrou a nossa roleta de pr\xEAmios!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Se voc\xEA gir\xE1-la vai poder ganhar uma das suas inestim\xE1veis
+      fantasias!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Que tal ajudarmos ele a girar a roleta dessa vez crian\xE7ada?"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: 'Repitam comigo: GIRA ROLETAAAAAA!!!'
     characterImage: {fileID: 0}

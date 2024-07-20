@@ -13,40 +13,44 @@ MonoBehaviour:
   m_Name: FinalDialogue
   m_EditorClassIdentifier: 
   talkScript:
-  - characterName: Puppet
+  - characterName: Boboneco
     dialogueTxt: "Isso foi.. EXPL\xCANDIDO!!! Diz que voc\xEA est\xE1 gostando dessa
       mem\xF3ria tanto quanto eu!"
-    characterImage: {fileID: 0}
-  - characterName: Puppet
-    dialogueTxt: "Maravilhoso conseguir superar medos e traumas passados e se fortalecer
-      com eles, n\xE3o acha?"
-    characterImage: {fileID: 0}
-  - characterName: Puppet
-    dialogueTxt: "Mas convenhamos pequenino, ter medo de uma flor t\xE3o bela s\xF3
-      por conta de uns espinhos?"
-    characterImage: {fileID: 0}
-  - characterName: Puppet
-    dialogueTxt: "Vamos fazer assim, para que os medos e traumas n\xE3o retornem,
-      repitam comigo crian\xE7ada:"
-    characterImage: {fileID: 0}
-  - characterName: Puppet
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Deu pra ver que voc\xEA tava com medo mas mesmo assim voc\xEA foi
+      l\xE1 e pei, e pow, e katchow!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "\xC9 muito divertido conseguir superar medos e traumas passados!
+      A gente fica mais forte com eles, n\xE3o acha?"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Mas que tal assim, pros medos e traumas n\xE3o voltarem, repitam
+      comigo crian\xE7ada:"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
     dialogueTxt: "X\xD4 MEDO!!!"
-    characterImage: {fileID: 0}
-  - characterName: Puppet
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
     dialogueTxt: "Muito bem!! Agora pequenino, sua vez, repita comigo para o medo
       n\xE3o voltar:"
-    characterImage: {fileID: 0}
-  - characterName: Puppet
-    dialogueTxt: "X\xD4 MEDO!!! ..melhor repetir ein."
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "X\xD4 MEDO!!! S\xF3 vai dar certo se voc\xEA repetir tamb\xE9m!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
   - characterName: Adriano
     dialogueTxt: "X\xF4.. X\xF4 medo!"
-    characterImage: {fileID: 0}
-  - characterName: Puppet
-    dialogueTxt: "Muito bem pequenino!! Aposto que sua m\xE3ezinha ficaria muito
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Muito bem pequenino!! Aposto que sua mam\xE3ezinha ficaria muito
       feliz com sua conquista."
-    characterImage: {fileID: 0}
-  - characterName: Puppet
-    dialogueTxt: "Assim como eu estou! Afinal de contas, esse programa \xE9 pra ajudar
-      voc\xEAs e saborear essas suas mem\xF3rias!"
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Assim como eu estou! Afinal de contas, esse programa \xE9 feito
+      pra gente se divertir e se aventurar, e viver essas maravilhosas, divertidas
+      e saborosas mem\xF3rias!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Vejo voc\xEAs no epis\xF3dio 3 crian\xE7ada!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}

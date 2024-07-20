@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e81e8e04a2bad4cbec99c94a3263a0, type: 3}
+  m_Name: FinalDialogue
+  m_EditorClassIdentifier: 
+  talkScript:
+  - characterName: Boboneco
+    dialogueTxt: "Olha s\xF3!! Voc\xEA achou eles mesmo! Muito obrigado pequenino!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: Nunca mais vou deixar esses ursinhos fugirem assim de novo, fiquei
+      preocupado!
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Mas, espero que tenha se divertido nessa aventura! At\xE9 o pr\xF3ximo
+      epis\xF3dio pessoal."
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}

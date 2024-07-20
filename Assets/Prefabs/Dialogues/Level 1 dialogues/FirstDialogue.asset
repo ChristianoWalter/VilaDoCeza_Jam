@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e81e8e04a2bad4cbec99c94a3263a0, type: 3}
+  m_Name: FirstDialogue
+  m_EditorClassIdentifier: 
+  talkScript:
+  - characterName: Boboneco
+    dialogueTxt: "OL\xC1 CRIAN\xC7ADA!!!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: Prontos para mais uma temporada de Puppet TV???
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: Dessa vez temos um novo amiguinho para participar com a gente dos
+      desafios!!
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Esse \xE9 o pequenino Adriano!! Diga oi para eles pequenino."
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "Ol\xE1.."
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "EXXXPL\xCANDIDO!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Ent\xE3o pequenino, essa edi\xE7\xE3o teremos v\xE1rios desafios
+      e aventuras sobre os velhos tempos!!!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Voc\xEA lembra deles?"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "N\xE3o muito.. eu acho.."
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Bom, N\xE3o se preocupe! Teremos muitas mem\xF3rias para ver juntos
+      de qualquer maneira!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Enfim, alguns ursos meus fugiram essa noite enquanto eu dormia..
+      eles devem estar por a\xED, perdidos, com medo e sozinhos."
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Pro seu desafio de hoje voc\xEA ter\xE1 que ach\xE1-los de volta
+      pra mim!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "S\xF3 tome cuidado com os antigos fofuxos no caminho ein!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: "Ent\xE3o, crian\xE7ada, para come\xE7ar o epis\xF3dio de hoje,
+      no 3, repitam comigo, \"comece\", tudo bem?"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: 3.. 2.. 1.. e...
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Boboneco
+    dialogueTxt: COMECE!!!
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}

@@ -8,6 +8,7 @@ TagManager:
   - Enemys Head
   - SpawnPoint
   - DialoguePanel
+  - LevelDialogue
   layers:
   - Default
   - TransparentFX
