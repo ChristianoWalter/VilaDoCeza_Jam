@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &587902154 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7738393658091206599, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
-  m_PrefabInstance: {fileID: 1827915138}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed5a917fd294144dbccf50ae9ca86ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &901065428 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9043858463934714619, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
@@ -156,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 920986049095794189, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
       propertyPath: reloadUI
       value: 
-      objectReference: {fileID: 587902154}
+      objectReference: {fileID: 0}
     - target: {fileID: 920986049095794189, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
       propertyPath: lifeCounter
       value: 
