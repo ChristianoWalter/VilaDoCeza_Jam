@@ -7,6 +7,7 @@ public class Wheel : InteractableControl
     [Header("Wheel Variables")]
     [SerializeField] Transform powerUpSpawn;
     [SerializeField] GameObject[] powerUp;
+    [SerializeField] GameObject spawnEffect;
     [SerializeField] bool spawnRandom;
     [SerializeField] int powerUpIndex;
     GameObject powerUpRef;
@@ -15,17 +16,26 @@ public class Wheel : InteractableControl
     {
         canInteract = false;
         GameManager.instance.interactBtn.SetActive(false);
-        if (powerUp != null) Destroy(powerUpRef);
-
+        if (powerUpRef != null)
+        {
+            SpawnEffect();
+            Destroy(powerUpRef);
+        }
         if (PlayerPrefs.HasKey("HasSpined"))
         {
             if (anim != null) anim.SetTrigger("Spin");
+            PlaySFX(0);
         }
         else
         {
             dialogue.StartDialogue();
             PlayerPrefs.SetInt("HasSpined", 1);
         }
+    }
+
+    public void SpawnEffect()
+    {
+        Instantiate(spawnEffect, powerUpSpawn.position, Quaternion.identity);
     }
 
     public void SpawnPowerUp()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RespawnManager : MonoBehaviour
 {
+    // Variáveis para controle do spawn
     [HideInInspector] public bool activeSpawn;
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject spawnSetEffect;
@@ -19,4 +20,5 @@ public class RespawnManager : MonoBehaviour
             activeSpawn = true;
         }
     }
+
 }

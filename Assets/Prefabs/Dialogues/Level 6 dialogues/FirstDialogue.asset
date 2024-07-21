@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e81e8e04a2bad4cbec99c94a3263a0, type: 3}
+  m_Name: FirstDialogue
+  m_EditorClassIdentifier: 
+  talkScript:
+  - characterName: Xuxu
+    dialogueTxt: "CRIAN\xC7ADA CRIAN\xC7ADA ME AJUDEM!!"
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Meus ursinhos sumiram, eu preciso falar com o pequenino mas n\xE3o
+      consigo encontrar ele."
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Pra ele vir at\xE9 aqui me ajudem a gritar o nome dele tudo bem?"
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: PEQUENINOOOOO
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Adriano
+    dialogueTxt: Oi.. o que foi?
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Pequenino, por favor, eu preciso de voc\xEA, meus ursinhos sumiram
+      de novo, e eu n\xE3o acho em lugar nenhum!!"
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Voc\xEA \xE9 o \xFAnico her\xF3i que conseguiria resgat\xE1-los!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "Her\xF3i..? Eu?"
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Mas \xE9 claro!!! Voc\xEA \xE9 o que mais demonstrou coragem enfrentando
+      seus medos at\xE9 aqui!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "Mas.. eu n\xE3o lembro quem eu sou, quem dir\xE1 ser um her\xF3i!"
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Ora pequenino! Mem\xF3rias n\xE3o s\xE3o necess\xE1rias para fazer
+      de algu\xE9m um grande her\xF3i!!"
+    characterImage: {fileID: -1480151206, guid: e6aac2e2fa861144d8517d18ade60fa2, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "O que importa \xE9 a sua coragem e que, se voc\xEA fizer isso,
+      esquecendo todo o resto, voc\xEA vai ser o meu her\xF3i!!"
+    characterImage: {fileID: 125282085, guid: e6af7385851b03a46b4cba2c1ec463e7, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: ME AJUDE POR FAVOOOOOOOOOOOOOOOOOOOOOOOOOORRRRR
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "Ok.. j\xE1 que voc\xEA precisa da minha ajuda, n\xE3o posso recusar!"
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "EXXXPL\xCANDIDO!!!"
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Saiba que voc\xEA j\xE1 \xE9 o meu her\xF3i!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Agora, ta na hora da A\xC7\xC3\xC3\xC3\xC3\xC3AAOOOOO!!"
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}

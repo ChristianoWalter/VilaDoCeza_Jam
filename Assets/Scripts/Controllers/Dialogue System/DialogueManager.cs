@@ -39,46 +39,62 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float typeDelay;
     string fullText;
     [SerializeField] float imageSpeed;
-    bool isInDialog;
-    bool open;
 
     private void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        gameManager = FindObjectOfType<GameManager>();
-        dialoguePanel = gameManager.dialoguePanel;
-        nextDialogBtn = gameManager.nextDialogBtn;
-        background = gameManager.background;
-        textBackground = gameManager.textBackground;
-        characterName = gameManager.characterName;
-        characterScript = gameManager.characterScript;
-        characterImage = gameManager.characterImage;
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+            dialoguePanel = gameManager.dialoguePanel;
+            nextDialogBtn = gameManager.nextDialogBtn;
+            background = gameManager.background;
+            textBackground = gameManager.textBackground;
+            characterName = gameManager.characterName;
+            characterScript = gameManager.characterScript;
+            characterImage = gameManager.characterImage;
+        }
     }
 
     private void Start()
     {
         //nextDialogBtn.onClick.AddListener(OnFinishedScript);
-        background.fillAmount = 0f;
         if (autoStart) StartDialogue();
     }
 
     private void Update()
     {
-        if (dialoguePanel == null) return;
-        if (!isInDialog) return;
-
-        if (open)
-            background.fillAmount = Mathf.Lerp(background.fillAmount, 1f, imageSpeed * Time.deltaTime);
-        else
+        if (gameManager == null)
         {
-            background.fillAmount = Mathf.Lerp(background.fillAmount, 0f, imageSpeed * Time.deltaTime);
-            if (background.fillAmount < 0.05f)
-            {
-                isInDialog = false;
-                background.fillAmount = 0f;
-                dialoguePanel.SetActive(false);
-            }
+            gameManager = FindObjectOfType<GameManager>();
+            dialoguePanel = gameManager.dialoguePanel;
+            nextDialogBtn = gameManager.nextDialogBtn;
+            background = gameManager.background;
+            textBackground = gameManager.textBackground;
+            characterName = gameManager.characterName;
+            characterScript = gameManager.characterScript;
+            characterImage = gameManager.characterImage;
         }
+
+        if (audioManager == null)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
+        }
+    }
+
+    // Rotina de ativação do diálogo
+    public IEnumerator ActiveDialoguePanel()
+    {
+        for (float time = 0; time < imageSpeed - .03; time += .01f)
+        {
+            background.fillAmount = time/imageSpeed;
+            yield return new WaitForSeconds(.01f);
+        }
+        background.fillAmount = 1f;
+        GameManager.instance.SetDialogueBtn(true, nextDialogBtn.gameObject);
+        textBackground.SetActive(true);
+        characterImage.gameObject.SetActive(true);
+        NextText();
     }
 
     // Método para ativar o dialogo
@@ -86,18 +102,23 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogueData.Length == dialogueIndex || GameManager.instance.gameIsPaused) return;
 
-        isInDialog = true;
         nextDialogBtn.onClick.AddListener(OnFinishedScript);
         audioManager.ChangeMusic(2);
         GameManager.instance.isInGame = false;
-        GameManager.instance.SetDialogueBtn(true, nextDialogBtn.gameObject);
         PlayerController.instance.PausePlayerMovement(true);
         dialoguePanel.SetActive(true);
-        textBackground.SetActive(true);
-        characterImage.gameObject.SetActive(true);
-        if (autoStart) background.fillAmount = 1f;
-        open = true;
-        NextText();
+
+        if (autoStart) 
+        { 
+            textBackground.SetActive(true);
+            characterImage.gameObject.SetActive(true);
+            GameManager.instance.SetDialogueBtn(true, nextDialogBtn.gameObject);
+            NextText();
+        }
+        else
+        {
+            StartCoroutine(ActiveDialoguePanel());
+        }
     }
 
     // Método para chamar o próximo texto, terminar escrita do texto atual ou finalizar diálogo
@@ -117,19 +138,31 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Rotina para finalizar diálogo
+    public IEnumerator CloseDialoguePanel()
+    {
+        for (float time = imageSpeed; time > .03; time -= .01f)
+        {
+            background.fillAmount = time/imageSpeed;
+            yield return new WaitForSeconds(.01f);
+        }
+        background.fillAmount = 0f;
+        dialoguePanel.SetActive(false);
+        GameManager.instance.isInGame = true;
+        PlayerController.instance.PausePlayerMovement(false);
+    }
+
     // Método destinado a finalizar o diálogo
     public void FinishDialogue()
     {
         dialogueStates = DialogueStates.finished;
-        GameManager.instance.isInGame = true;
         scriptIndex = 0;
-        open = false;
+        StartCoroutine(CloseDialoguePanel());
         characterName.text = "";
         characterScript.text = "";
         textBackground.SetActive(false);
         characterImage.gameObject.SetActive(false);
         GameManager.instance.SetDialogueBtn(false, null);
-        PlayerController.instance.PausePlayerMovement(false);
         audioManager.ChangeMusic(1);
 
         if (lastScriptAction.Length != 0)

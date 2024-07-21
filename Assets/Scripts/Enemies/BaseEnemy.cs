@@ -18,6 +18,9 @@ public class BaseEnemy : HealthController
 
     // Área destinada a componentes exernos do inimigo
     [Header("Components")]
+    [SerializeField] GameObject deathEffect;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] clip;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator enemyAnim;
 
@@ -31,6 +34,7 @@ public class BaseEnemy : HealthController
         {
             pPoint.SetParent(null);
         }
+        StartCoroutine(PlayLaught());
     }
 
     // Update is called once per frame
@@ -76,6 +80,12 @@ public class BaseEnemy : HealthController
         }
     }
 
+    IEnumerator PlayLaught()
+    {
+        yield return new WaitForSeconds(Random.Range(2f, 6f));
+        audioSource.Play();
+    }
+
      // Método destinado a detecção de colisão
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -92,6 +102,7 @@ public class BaseEnemy : HealthController
         {
             pPoint.SetParent(gameObject.transform);
         }
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

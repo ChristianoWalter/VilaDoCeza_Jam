@@ -13,27 +13,27 @@ MonoBehaviour:
   m_Name: FirstDialogue
   m_EditorClassIdentifier: 
   talkScript:
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Ol\xE1 crian\xE7ada!! Bem vindos ao epis\xF3dio 3!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
     dialogueTxt: Hoje temos um desafio bem legal para enfrentar, o TAXINHAS CHALLENGE!!!
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Depois que um programa, muito parecido com o Puppet TV, mas deixando
       claro que n\xE3o foi o Puppet TV, fez esse desafio, virou febre por a\xED."
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "Ent\xE3o, o pequenino teve a brilhante ideia de espalhar taxinhas
       por a\xED pra gente brincar desse desafio!!"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
   - characterName: Adriano
     dialogueTxt: "N\xE3o lembro de ter tido essa ideia.."
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Oras, mas as taxinhas foram espalhadas j\xE1! Vamos nessa pequenino!
       Atravessar esse circuito sem pisar nas taxinhas!"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Repitam comigo crian\xE7ada: TAXINHAS CHALLENGE!!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}

@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: FinalDialogue
   m_EditorClassIdentifier: 
   talkScript:
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "EXXXPL\xCANDIDO RAPAZ!!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "Voc\xEA conseguiu! enfrentou todos eles e superou seu medo!!!"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: Foi realmente muito divertido e gostoso de se assistir!
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: -1480151206, guid: e6aac2e2fa861144d8517d18ade60fa2, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "Voc\xEA foi l\xE1 e primeiro pow! Venceu aqueles espinhos! E ent\xE3o
       enfrentou os fofuxos, e a\xED as taxinhas tamb\xE9m!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "Nossa.. isso foi incr\xEDvel, e como voc\xEA ta se sentindo? Ainda
       lembra desses medos?"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    characterImage: {fileID: 125282085, guid: e6af7385851b03a46b4cba2c1ec463e7, type: 3}
   - characterName: Adriano
     dialogueTxt: Eu.. to bem eu acho...
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
@@ -37,10 +37,10 @@ MonoBehaviour:
     dialogueTxt: "Parece que.. quase n\xE3o lembro de ter medo deles agora... porque
       eu tinha medo mesmo?"
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "EXXXPL\xCANDIDO!!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "L\xE1 se foram os medos, e junto deles, acho que o epis\xF3dio
       vai ficando por aqui tamb\xE9m, at\xE9 mais crian\xE7ada!"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}

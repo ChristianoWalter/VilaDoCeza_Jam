@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: FinalDialogue
   m_EditorClassIdentifier: 
   talkScript:
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "EXXXPL\xCANDIDO!!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "Voc\xEA mandou muito bem!! Evitou todas as taxinhas!!"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Agora, \xE9 melhor a gente catar todas essas taxinhas do ch\xE3o
       se n\xE3o a produ\xE7\xE3o me mata, e sua m\xE3e mata voc\xEA!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
   - characterName: Adriano
     dialogueTxt: "Mas eu j\xE1 disse que n\xE3o lembro de ter feito iss-"
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "E por hoje \xE9 s\xF3 crian\xE7ada! At\xE9 o epis\xF3dio que vem!
       Tchau!!"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}

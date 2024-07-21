@@ -13,35 +13,35 @@ MonoBehaviour:
   m_Name: FirstDialogue
   m_EditorClassIdentifier: 
   talkScript:
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Ol\xE1 crian\xE7ada! Estamos come\xE7ando agora o epis\xF3dio cinco!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
     dialogueTxt: E o nosso desafio de hoje, vai ser tentar superar de vez nossos
       medos! Lembre de todos que puder e os enfrente pequenino!
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
   - characterName: Adriano
     dialogueTxt: Eu.. vou ter que enfrentar tudo aquilo.. de novo..??? Msa.. mas
       porque?????
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Ora pequenino, \xE9 porque voc\xEA ainda tem esse medo e mem\xF3rias
       assombrosas dentro de voc\xEA."
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
-    dialogueTxt: "E hoje! Definitivamente, vou te livrar delas! VAmos nos alimentar
+    characterImage: {fileID: 125282085, guid: e6af7385851b03a46b4cba2c1ec463e7, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "E hoje! Definitivamente, vou te livrar delas! Vamos nos alimentar
       e ficar mais fortes dessas mem\xF3rias ruins!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: 125282085, guid: e6af7385851b03a46b4cba2c1ec463e7, type: 3}
+  - characterName: Xuxu
     dialogueTxt: Eu acredito no seu potencial, vamos superar esse medo!
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
   - characterName: Adriano
     dialogueTxt: Mas...
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Vamos l\xE1, vamos todos juntos gritar pro medo ir embora pro pequenino
       conseguir passar deste desafio! Em 3.. 2.. 1.."
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "X\xD4 MEDO!!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}

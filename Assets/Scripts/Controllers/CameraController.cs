@@ -20,10 +20,15 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (boundBox == null) return;
         if (player == null)
         {
             player = FindObjectOfType<PlayerController>();
+        }
+
+        if (boundBox == null)
+        {
+            transform.position = new Vector3( player.transform.position.x, player.transform.position.y, transform.position.z);
+            return;
         }
 
 

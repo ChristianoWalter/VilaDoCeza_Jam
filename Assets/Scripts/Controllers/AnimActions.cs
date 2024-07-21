@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,5 +21,10 @@ public class AnimActions : MonoBehaviour
     public void Action3()
     {
         action[2].Invoke();
+    }
+
+    public void SelfDestroy()
+    {
+        Destroy(gameObject);
     }
 }

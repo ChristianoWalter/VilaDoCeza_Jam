@@ -45,16 +45,16 @@ public class MovablePlatform : MonoBehaviour
     // Método para detectar colisão do player e fazê-lo se mover junto à plataforma
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.CompareTag("Player"))
+        if (other.collider.CompareTag("Player") || other.collider.CompareTag("Enemy"))
         {
             other.transform.SetParent(transform);
         }
     }
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.collider.CompareTag("Player"))
+        if (other.collider.CompareTag("Player") || other.collider.CompareTag("Enemy"))
         {
-            other.transform.SetParent(null);
+            if (other.transform.IsChildOf(gameObject.transform)) other.transform.SetParent(null);
         }
     }
 

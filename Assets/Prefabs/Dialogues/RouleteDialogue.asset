@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: RouleteDialogue
   m_EditorClassIdentifier: 
   talkScript:
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Olha s\xF3!! Voc\xEA encoutrou a nossa roleta de pr\xEAmios!!"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Se voc\xEA gir\xE1-la vai poder ganhar uma das suas inestim\xE1veis
       fantasias!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "Que tal ajudarmos ele a girar a roleta dessa vez crian\xE7ada?"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
     dialogueTxt: 'Repitam comigo: GIRA ROLETAAAAAA!!!'
-    characterImage: {fileID: 0}
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}

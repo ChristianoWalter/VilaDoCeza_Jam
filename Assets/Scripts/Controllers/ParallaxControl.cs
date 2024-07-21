@@ -9,6 +9,7 @@ public class ParallaxControl : MonoBehaviour
     Transform cam;
 
     [SerializeField] Vector2 parallaxEffect;
+    [SerializeField] bool repeat = true;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +22,12 @@ public class ParallaxControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector2 restPos = cam.position * (new Vector2(1, 1) - parallaxEffect);
         Vector2 distance = cam.transform.position * parallaxEffect;
         transform.position = startPos + distance;
 
+        if (!repeat) return;
         if (restPos.x > startPos.x + length.x)
         {
             startPos.x += length.x;

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e81e8e04a2bad4cbec99c94a3263a0, type: 3}
+  m_Name: FinalDialogue
+  m_EditorClassIdentifier: 
+  talkScript:
+  - characterName: Xuxu
+    dialogueTxt: MINHA NOOOOOOOOSSAAA
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Voc\xEA conseguiu mesmo! Sabia que voc\xEA era um her\xF3i!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "Acho.. acho que eu j\xE1 quis ser her\xF3i um dia.. fico feliz."
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Mas voc\xEA lembra disso ent\xE3o? Desse jeito voc\xEA n\xE3o estar\xE1
+      sendo meu her\xF3i pequenino."
+    characterImage: {fileID: 125282085, guid: e6af7385851b03a46b4cba2c1ec463e7, type: 3}
+  - characterName: Adriano
+    dialogueTxt: Como assim..?
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Nada pequenino, apenas.. esque\xE7a."
+    characterImage: {fileID: -1480151206, guid: e6aac2e2fa861144d8517d18ade60fa2, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: Vamos seguir em frente, ainda tenho alguns ursinhos desaparecidos
+      que esperam pelo seu resgate!!!
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: GeneralFinalLevelDialogue
   m_EditorClassIdentifier: 
   talkScript:
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Voc\xEA ainda tem que cumprir o desafio desse epis\xF3dio!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "Volte l\xE1 e pegue todos os itens, n\xE3o vamos decepcionar nossa
       audi\xEAncia!!"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}

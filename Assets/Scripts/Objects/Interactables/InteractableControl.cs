@@ -11,13 +11,26 @@ public class InteractableControl : MonoBehaviour
     [SerializeField] protected UnityEvent action;
     [SerializeField] protected DialogueManager dialogue;
     [SerializeField] protected Animator anim;
-    [SerializeField]bool playerIsColliding;
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioClip[] clip;
+    AudioManager audioManager;
+    protected bool playerIsColliding;
 
     [Header("Power Up Variables")]
     [SerializeField] PlayerForms playerForms;
 
     [Header("Level changes Variables")]
     [SerializeField] int objectsToNextLevel;
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();  
+    }
+
+    private void Update()
+    {
+        if (audioManager == null) audioManager = FindObjectOfType<AudioManager>();
+    }
 
     protected void OnTriggerStay2D(Collider2D other)
     {
@@ -32,7 +45,7 @@ public class InteractableControl : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            GameManager.instance.interactBtn.SetActive(false);
+            if (GameManager.instance.interactBtn.activeSelf) GameManager.instance.interactBtn.SetActive(false);
             playerIsColliding = false;
         }
     }
@@ -49,18 +62,11 @@ public class InteractableControl : MonoBehaviour
     // Método para coleta do objeto de fase
     public void CollectLevelObject()
     {
+        audioManager.PlaySFX(clip[0]);
         canInteract = false;
         GameManager.instance.interactBtn.SetActive(canInteract);
-        if (PlayerPrefs.HasKey(objectName))
-        {
-            GameManager.instance.levelobjectsCollected++;
-            Destroy(gameObject);
-        }
-        else
-        {
-            PlayerPrefs.SetString(objectName, objectName);
-            if (dialogue != null) dialogue.StartDialogue();
-        }
+        GameManager.instance.levelobjectsCollected++;
+        Destroy(gameObject);
     }
 
     // Método para coleta de power up
@@ -68,16 +74,8 @@ public class InteractableControl : MonoBehaviour
     {
         canInteract = false;
         GameManager.instance.interactBtn.SetActive(canInteract);
-        if (PlayerPrefs.HasKey(objectName))
-        {
-            PlayerController.instance.SwitchPlayerForm(playerForms);
-            Destroy(gameObject);
-        }
-        else
-        {
-            PlayerPrefs.SetString(objectName, objectName);
-            if (dialogue != null) dialogue.StartDialogue();
-        }
+        PlayerController.instance.SwitchPlayerForm(playerForms);
+        Destroy(gameObject);
     }
 
     // Método para mudança de level
@@ -87,8 +85,8 @@ public class InteractableControl : MonoBehaviour
         GameManager.instance.interactBtn.SetActive(canInteract);
         if (GameManager.instance.levelobjectsCollected == objectsToNextLevel)
         {
-            dialogue.NextDialogue();
-            dialogue.StartDialogue();
+            anim.SetTrigger("ChangeDoor");
+            PlaySFX(0);
         }
         else
         {
@@ -96,10 +94,22 @@ public class InteractableControl : MonoBehaviour
         }
     }
 
+    public void FinishDoorOpenAnim()
+    {
+        if (dialogue.dialogueIndex > 0) dialogue.NextDialogue();
+        dialogue.StartDialogue();
+    }
+
     // Ativa próxima fase
     public void NextLevel()
     {
         StartCoroutine(GameManager.instance.GameToNextLevel());
+    }
+
+    public void PlaySFX(int index)
+    {
+        audioSource.clip = clip[index];
+        audioSource.Play();
     }
 
     // Ativa interação com objeto novamente

@@ -44,13 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f723d0130c1dc784782b9fa65f45507e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 0}
-  nextDialogBtn: {fileID: 0}
-  background: {fileID: 0}
-  textBackground: {fileID: 0}
-  characterName: {fileID: 0}
-  characterScript: {fileID: 0}
-  characterImage: {fileID: 0}
   autoStart: 0
   dialogueData:
   - {fileID: 11400000, guid: 284eb3ce19edf5249af38d51e35dabb4, type: 2}
@@ -58,4 +51,4 @@ MonoBehaviour:
   scriptIndex: 0
   dialogueIndex: 0
   typeDelay: 0.02
-  imageSpeed: 3
+  imageSpeed: 0.8

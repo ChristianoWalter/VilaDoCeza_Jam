@@ -20,8 +20,10 @@ public class GraphsController : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("ResolutionValue") && PlayerPrefs.HasKey("WindowsValue"))
         {
-            PlayerPrefs.SetInt("ResolutionValue", resolutionIndex);
-            PlayerPrefs.SetInt("WindowsValue", screenIndex);
+            resolutionIndex = resolutions.Length - 1;
+            screenIndex = 0;
+            SetScreenMode();
+            SetResolution();
         }
         else
         {
@@ -34,7 +36,7 @@ public class GraphsController : MonoBehaviour
 
     public void ResolutionUpgrade()
     {
-        if(resolutionIndex < resolutions.Length)
+        if(resolutionIndex < resolutions.Length - 1)
         {
             resolutionIndex++;
             SetResolution();
@@ -44,7 +46,7 @@ public class GraphsController : MonoBehaviour
     void SetResolution()
     {
         Screen.SetResolution((int)resolutions[resolutionIndex].x, (int)resolutions[resolutionIndex].y, true);
-        resolutionTxt.text = ((int)resolutions[resolutionIndex].x + " x " + (int)resolutions[resolutionIndex].y);
+        resolutionTxt.text = (int)resolutions[resolutionIndex].x + " x " + (int)resolutions[resolutionIndex].y;
         PlayerPrefs.SetInt("ResolutionValue", resolutionIndex);
     }
 

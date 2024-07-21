@@ -124,6 +124,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3236035827077874831, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236035827077874831, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236035827077874831, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ef74881ff8593004cbd50b6efc273618, type: 3}
+    - target: {fileID: 3236035827077874831, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236035827077874831, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236035827077874831, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5107837173654122174, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
       propertyPath: m_Sprite
       value: 

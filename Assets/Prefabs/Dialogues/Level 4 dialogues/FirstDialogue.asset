@@ -13,43 +13,46 @@ MonoBehaviour:
   m_Name: FirstDialogue
   m_EditorClassIdentifier: 
   talkScript:
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Ol\xE1 crian\xE7ada! Bem vindos ao epis\xF3dio que vem!!"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Hoje, n\xF3s estamos com um desafio muito perigoso."
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "V\xE1rios dos antigos bonecos fofuxo ganharam vida e pegaram um
       objeto cortante de DENTRO DELES!!!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: -1480151206, guid: e6aac2e2fa861144d8517d18ade60fa2, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "Al\xE9m disso, eles tamb\xE9m roubaram meus sandu\xEDches de presunto!!!
       Isso \xE9 assustador!!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    characterImage: {fileID: 125282085, guid: e6af7385851b03a46b4cba2c1ec463e7, type: 3}
   - characterName: Adriano
     dialogueTxt: "Mas porque esses bonecos iriam querer sandu\xEDches? Eles nem precisam
       comer, s\xE3o bonecos."
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Ei!! N\xF3s bonecos tamb\xE9m precisamos nos alimentar pra nos
-      fortalecer! Uns se alimentam de sadu\xEDches de presunto, outros de doces,
+      fortalecer! "
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Uns se alimentam de sadu\xEDches de presunto, outros de doces,
       alguns de lembran\xE7as.. Mas todos n\xF3s temos que comer!!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    characterImage: {fileID: 125282085, guid: e6af7385851b03a46b4cba2c1ec463e7, type: 3}
   - characterName: Adriano
     dialogueTxt: "Ok.. Se voc\xEA diz.."
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Enfim pequenino, vamos nessa enfrent\xE1-los e recuperar meus sandu\xEDches!!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
   - characterName: Adriano
     dialogueTxt: "Mas.. eles s\xE3o assustadores.... com esses.. objetos cortantes
       e perigosos que eles tinham dentro deles..."
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Ah pequenino, n\xE3o se preocupe com isso! Vamos criar coragem
       gritando \"x\xF4 medo\" e enfrent\xE1-los! Comigo:"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "X\xD4 MEDO!!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}

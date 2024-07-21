@@ -65,6 +65,7 @@ public class PlayerController : HealthController
 
     // Componentes externos que serão atrelados ao script externamente
     [Header("Components")]
+    [SerializeField] GameObject transformationEffect;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform foot;
     [SerializeField] Transform attackPoint;
@@ -188,6 +189,7 @@ public class PlayerController : HealthController
                 if (reloadUI != null) reloadUI.UpdateFill(0f);
                 break;
         }
+        Instantiate(transformationEffect, transform.position, transform.rotation).transform.SetParent(gameObject.transform);
         anim.SetTrigger("ChangeForm");
     }
 
@@ -265,6 +267,7 @@ public class PlayerController : HealthController
     protected override void DamageEffect()
     {
         base.DamageEffect();
+        if (playerForms != PlayerForms.normal) Instantiate(transformationEffect, transform.position, transform.rotation).transform.SetParent(gameObject.transform);
         dead = true;
         anim.SetBool("Dead", dead);
         PausePlayerMovement(true);

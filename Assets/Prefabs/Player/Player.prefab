@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 472579143185797487}
   - component: {fileID: 2797479416690096116}
   - component: {fileID: 4844077312678211015}
+  - component: {fileID: 4287129801710356731}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -312,6 +313,7 @@ MonoBehaviour:
   sfx:
   - {fileID: 8300000, guid: 3ff56aa84de39c042b3ed0be41fa13fa, type: 3}
   audioManager: {fileID: 0}
+  transformationEffect: {fileID: 1447169539128217003, guid: b3f992a0330006f4a97f5da002419055, type: 3}
   rb: {fileID: 472579143185797487}
   foot: {fileID: 3262516795922551111}
   attackPoint: {fileID: 2758758028517953467}
@@ -464,6 +466,14 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!81 &4287129801710356731
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5744359952091704577}
+  m_Enabled: 1
 --- !u!1 &8743445418220918237
 GameObject:
   m_ObjectHideFlags: 0

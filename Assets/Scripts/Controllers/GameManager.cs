@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject playerRef;
     public GameObject interactBtn;
     public int levelobjectsCollected;
+    [SerializeField] AudioManager audioManager;
     [HideInInspector] public bool levelStarted;
     [HideInInspector] public bool gameIsPaused;
     GameObject currentSpawnVFX;
@@ -184,13 +185,20 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SetPlayer();
         gameIsPaused = false;
+        audioManager.ChangeMusic(0);
         SceneManager.LoadScene("MainMenu");
         SwitchScreen(GameScreens.mainMenu);
         yield return new WaitForSeconds(1f);
         FadeOut();
         playerRef.transform.position = Vector2.zero;
     }
-    
+
+    // Método para carregar menu e não sobrecarregar ienumerator
+    void LoadMenu()
+    {
+        
+    }
+
     // Método para ser chamado por botão e executar mudança para tela de menu principal
     public void SwitchToMainMenu()
     {
@@ -247,17 +255,28 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         FadeIn();
         isInGame = false;
-        yield return new WaitForSeconds(1f);
         SetPlayer();
+        yield return new WaitForSeconds(1f);
+        LoadLevelSelect();
+    }
+
+    // Método para carregar menu e não sobrecarregar ienumerator
+    void LoadLevelSelect()
+    {
+        audioManager.ChangeMusic(0);
         SwitchScreen(GameScreens.levelSelect);
         SceneManager.LoadScene("MainMenu");
         levels[currentLevelActive].SetActive(false);
         levels[currentLevelActive + 1].SetActive(true);
         currentLevelActive++;
         EventSystem.current.SetSelectedGameObject(levelBtnSelected[currentLevelActive]);
-        SaveProgress();
+        if(currentLevelActive > levelsUnlocked)
+        {
+            levelsUnlocked = currentLevelActive;
+            SaveProgress();
+            LoadProgress();
+        }
         FadeOut();
-        LoadProgress();
         playerRef.transform.position = Vector2.zero;
     }
 
@@ -278,6 +297,7 @@ public class GameManager : MonoBehaviour
         SwitchScreen(GameScreens.gameUI);
         isInGame = true;
         yield return new WaitForSeconds(1f);
+        audioManager.ChangeMusic(1);
         FadeOut();
         SetPlayer();
         playerRef.SetActive(true);
@@ -307,12 +327,6 @@ public class GameManager : MonoBehaviour
     // Finaliza transição levando em conta o tempo de animação
     IEnumerator FadeOutRoutine()
     {
-       /* if (!levelStarted && GameObject.FindGameObjectWithTag("LevelDialogue"))
-        {
-            levelStarted = true;
-            DialogueManager dRef = GameObject.FindGameObjectWithTag("LevelDialogue").GetComponent<DialogueManager>();
-            if(dRef.autoStart) dRef.StartDialogue();
-        }*/
         yield return new WaitForSeconds(1f);
         transitionCanvas.SetActive(false);
     }

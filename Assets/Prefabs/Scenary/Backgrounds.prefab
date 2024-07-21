@@ -1241,6 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: {x: 0.7, y: 0.7}
+  repeat: 1
 --- !u!1 &3293262454779306321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,6 +2118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: {x: 0.9, y: 0.9}
+  repeat: 0
 --- !u!1 &5635659808922852600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: {x: 0.5, y: 0.3}
+  repeat: 1
 --- !u!1 &5822441085978238563
 GameObject:
   m_ObjectHideFlags: 0

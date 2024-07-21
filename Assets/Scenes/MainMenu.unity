@@ -161,6 +161,10 @@ PrefabInstance:
       propertyPath: lifeCounter
       value: 
       objectReference: {fileID: 901065428}
+    - target: {fileID: 920986049095794189, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1757656757}
     - target: {fileID: 5149511924067332442, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.822577
@@ -215,6 +219,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5744359952091704577, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
   m_PrefabInstance: {fileID: 1751552920}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1757656757 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4791690667745784551, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
+  m_PrefabInstance: {fileID: 1827915138}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac78191cf964d1d42a42f62812d3ea34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1827915138
 PrefabInstance:
   m_ObjectHideFlags: 0

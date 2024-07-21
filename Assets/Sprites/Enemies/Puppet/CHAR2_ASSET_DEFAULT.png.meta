@@ -152,12 +152,12 @@ TextureImporter:
       name: CHAR2_ASSET_DEFAULT_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 86
-        width: 1102
-        height: 1100
+        x: 0
+        y: 119
+        width: 1199
+        height: 1200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,7 +178,7 @@ TextureImporter:
         width: 1199
         height: 1364
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

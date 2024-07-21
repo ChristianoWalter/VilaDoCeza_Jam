@@ -12,9 +12,23 @@ public class FindCamera : MonoBehaviour
     void Start()
     {
         if (cam == null) cam = FindObjectOfType<CameraController>();
-
-        
-
         if (col != null) cam.boundBox = col;
+    }
+
+    private void Update()
+    {
+        if (cam == null)
+        {
+            cam = FindObjectOfType<CameraController>();
+            cam.boundBox = col;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.GetComponent<PlayerController>()?.TakeDamage(1);
+        }
     }
 }

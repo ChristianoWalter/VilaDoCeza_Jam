@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FinalDialogueNoObjects
   m_EditorClassIdentifier: 
   talkScript:
-  - characterName: Boboneco
+  - characterName: Xuxu
     dialogueTxt: "Voc\xEA ainda n\xE3o encontrou todos os meus ursinhos!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
-  - characterName: Boboneco
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "Por favor, ache eles pra mim! Eu e a crian\xE7ada que est\xE1 nos
       assistindo contamos com voc\xEA!"
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
