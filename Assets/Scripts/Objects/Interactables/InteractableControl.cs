@@ -62,7 +62,7 @@ public class InteractableControl : MonoBehaviour
     // Método para coleta do objeto de fase
     public void CollectLevelObject()
     {
-        audioManager.PlaySFX(clip[0]);
+        if (clip.Length > 0) audioManager.PlaySFX(clip[0]);
         canInteract = false;
         GameManager.instance.interactBtn.SetActive(canInteract);
         GameManager.instance.levelobjectsCollected++;
@@ -96,7 +96,7 @@ public class InteractableControl : MonoBehaviour
 
     public void FinishDoorOpenAnim()
     {
-        if (dialogue.dialogueIndex > 0) dialogue.NextDialogue();
+        if (dialogue.dialogueData.Length > 1) dialogue.NextDialogue();
         dialogue.StartDialogue();
     }
 

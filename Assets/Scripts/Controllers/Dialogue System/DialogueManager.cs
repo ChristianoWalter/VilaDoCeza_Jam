@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
     // Variáveis para manutenção e desenrolar do diálogo
     [Header("Dialogues variables manager")]
     public bool autoStart;
-    [SerializeField] DialogueData[] dialogueData;
+    public DialogueData[] dialogueData;
     public UnityEvent[] lastScriptAction;
     DialogueStates dialogueStates;
     public int scriptIndex;
@@ -109,7 +109,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
 
         if (autoStart) 
-        { 
+        {
+            background.fillAmount = 1f;
             textBackground.SetActive(true);
             characterImage.gameObject.SetActive(true);
             GameManager.instance.SetDialogueBtn(true, nextDialogBtn.gameObject);
@@ -141,6 +142,7 @@ public class DialogueManager : MonoBehaviour
     // Rotina para finalizar diálogo
     public IEnumerator CloseDialoguePanel()
     {
+        GameManager.instance.isInGame = true;
         for (float time = imageSpeed; time > .03; time -= .01f)
         {
             background.fillAmount = time/imageSpeed;
@@ -148,7 +150,6 @@ public class DialogueManager : MonoBehaviour
         }
         background.fillAmount = 0f;
         dialoguePanel.SetActive(false);
-        GameManager.instance.isInGame = true;
         PlayerController.instance.PausePlayerMovement(false);
     }
 

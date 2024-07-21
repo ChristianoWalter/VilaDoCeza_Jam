@@ -39,7 +39,7 @@ public class PlayerController : HealthController
     [SerializeField] LayerMask enemiesMask;
     public bool canAttack;
     float currentTimeToReload;
-    [SerializeField] HabilitiesUIControl reloadUI;
+    //[SerializeField] HabilitiesUIControl reloadUI;
 
     // Variável para retornar ao spawnpoint quando ferido
     [HideInInspector] public Vector2 respawnPoint = new Vector2(0, .1f);
@@ -164,6 +164,7 @@ public class PlayerController : HealthController
             dead = false;
             anim.SetBool("Dead", dead);
         }
+        if (isInvencible) isInvencible = false;
         currentHealth = maxHealth;
     }
 
@@ -176,20 +177,20 @@ public class PlayerController : HealthController
         {
             case PlayerForms.normal:
                 canAttack = false;
-                if (reloadUI != null) reloadUI.UpdateFill(1f);
+                //if (reloadUI != null) reloadUI.UpdateFill(1f);
                 break;
             case PlayerForms.clown:
                 canAttack = true;
                 currentTimeToReload = clownReloadTime;
-                if (reloadUI != null) reloadUI.UpdateFill(0f);
+                //if (reloadUI != null) reloadUI.UpdateFill(0f);
                 break;
             case PlayerForms.thirdForm:
                 canAttack = true;
                 currentTimeToReload = secondReloadTime;
-                if (reloadUI != null) reloadUI.UpdateFill(0f);
+                //if (reloadUI != null) reloadUI.UpdateFill(0f);
                 break;
         }
-        Instantiate(transformationEffect, transform.position, transform.rotation).transform.SetParent(gameObject.transform);
+        if (!dead) Instantiate(transformationEffect, transform.position, transform.rotation).transform.SetParent(gameObject.transform);
         anim.SetTrigger("ChangeForm");
     }
 
@@ -215,7 +216,7 @@ public class PlayerController : HealthController
             }
             timeToReload = currentTimeToReload;
             anim.SetFloat("ReloadAttack", timeToReload);
-            reloadUI.UpdateFill(currentTimeToReload / currentTimeToReload);
+            //reloadUI.UpdateFill(currentTimeToReload / currentTimeToReload);
         } 
     }
 
@@ -225,13 +226,13 @@ public class PlayerController : HealthController
         for (float i = currentTimeToReload; i != 0; i = Mathf.Max(i - .1f, 0))
         {
             timeToReload = i;
-            reloadUI.UpdateFill(timeToReload/currentTimeToReload);
+            //reloadUI.UpdateFill(timeToReload/currentTimeToReload);
             yield return new WaitForSeconds(.1f);
         }
         canAttack = true;
         timeToReload = 0f;
         anim.SetFloat("ReloadAttack", timeToReload);
-        reloadUI.UpdateFill(timeToReload / currentTimeToReload);
+        //reloadUI.UpdateFill(timeToReload / currentTimeToReload);
     }
     #endregion
 
@@ -288,8 +289,8 @@ public class PlayerController : HealthController
         yield return new WaitForSeconds(1f);
         GameManager.instance.FadeIn();
         yield return new WaitForSeconds(1f);
-        transform.SetParent(null);
         SwitchPlayerForm(PlayerForms.normal);
+        transform.SetParent(null);
         transform.position = respawnPoint;
         dead = false;
         anim.SetBool("Dead", dead);

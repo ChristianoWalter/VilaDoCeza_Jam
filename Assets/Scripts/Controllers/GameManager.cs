@@ -84,8 +84,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //MainMenuStart();
-        //LoadProgress();
+        MainMenuStart();
+        LoadProgress();
+    }
+
+    private void Update()
+    {
+        if (playerRef == null) playerRef = FindObjectOfType<PlayerController>().gameObject;
     }
 
     // Método direcionado à salvar progresso do jogo
@@ -184,6 +189,7 @@ public class GameManager : MonoBehaviour
         isInGame = false;
         yield return new WaitForSeconds(1f);
         SetPlayer();
+        playerRef.SetActive(false);
         gameIsPaused = false;
         audioManager.ChangeMusic(0);
         SceneManager.LoadScene("MainMenu");
@@ -191,12 +197,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         FadeOut();
         playerRef.transform.position = Vector2.zero;
-    }
-
-    // Método para carregar menu e não sobrecarregar ienumerator
-    void LoadMenu()
-    {
-        
     }
 
     // Método para ser chamado por botão e executar mudança para tela de menu principal
@@ -255,8 +255,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         FadeIn();
         isInGame = false;
-        SetPlayer();
         yield return new WaitForSeconds(1f);
+        playerRef.SetActive(false);
+        SetPlayer();
         LoadLevelSelect();
     }
 
@@ -297,7 +298,6 @@ public class GameManager : MonoBehaviour
         SwitchScreen(GameScreens.gameUI);
         isInGame = true;
         yield return new WaitForSeconds(1f);
-        audioManager.ChangeMusic(1);
         FadeOut();
         SetPlayer();
         playerRef.SetActive(true);
