@@ -21,6 +21,18 @@ MonoBehaviour:
       fantasias!"
     characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
   - characterName: Xuxu
+    dialogueTxt: "E com elas voc\xEA ganha habilidades novas!!!"
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "A fantasia do palha\xE7o deixa voc\xEA jogar bolinhas nos inimigos
+      usando o bot\xE3o esquerdo do mause ou o bot\xE3o oeste do seu controle de
+      console!!! (quadrado no playstation e X no xbox)."
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "E a fantasia de Cowboy te da um avan\xE7o apertando shift ou o
+      bot\xE3o Este!!!! (bola no playstation, B no xbox)."
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
     dialogueTxt: "Que tal ajudarmos ele a girar a roleta dessa vez crian\xE7ada?"
     characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
   - characterName: Xuxu

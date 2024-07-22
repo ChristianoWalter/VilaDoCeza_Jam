@@ -1,14 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 public enum PlayerForms
 {
     normal,
     clown,
-    thirdForm // Nome provisório
+    cowboy
 }
 
 public class PlayerController : HealthController
@@ -29,15 +26,15 @@ public class PlayerController : HealthController
 
     // Variáveis para recuperar velocidade e gravidade quando pausar o jogo
     Vector2 afterPauseSpeed;
-    float afterPauseGravity;
+    float originalGravity;
 
     // Variáveis que definem o formato de combate do Player
     [Header("--Combat Variables--")]
     [SerializeField] float jumpDamage;
     [SerializeField] float jumpForceAfterDamage;
     [SerializeField] PlayerForms playerForms;
-    [SerializeField] LayerMask enemiesMask;
-    public bool canAttack;
+    //[SerializeField] LayerMask enemiesMask;
+    public bool canUseHability;
     float currentTimeToReload;
     //[SerializeField] HabilitiesUIControl reloadUI;
 
@@ -46,13 +43,15 @@ public class PlayerController : HealthController
 
 
     // Variáveis referentes ao ataque da segunda transformação
-    [Header("Second Form habilities variables")]
-    [SerializeField] float damage;
-    [SerializeField] float range;
-    [SerializeField] float secondReloadTime;
+    [Header("Cowboy habilities variables")]
+    [SerializeField] float dashPower;
+    [SerializeField] float dashingTime;
+    [SerializeField] float dashReloadTime;
+    [SerializeField] TrailRenderer dashTrail;
+    private bool isDashing;
 
     // Variáveis referentes ao ataque da transformação de palhaço
-    [Header("Clown habilities")]
+    [Header("Clown habilities variables")]
     [SerializeField] GameObject projectile;
     [SerializeField] float clownReloadTime;
     float timeToReload;
@@ -60,6 +59,7 @@ public class PlayerController : HealthController
     // Variáveis para controle de efeitos sonoros
     [Header("SFX Controls")]
     [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource stepSource;
     [SerializeField] AudioClip[] sfx;
     [SerializeField] AudioManager audioManager;
 
@@ -81,14 +81,18 @@ public class PlayerController : HealthController
         }
         else Destroy(gameObject);
 
-        afterPauseGravity = rb.gravityScale;
+        originalGravity = rb.gravityScale;
         canMove = true;
+        audioManager = FindObjectOfType<AudioManager>();
+        if (lifeCounter == null) lifeCounter = FindObjectOfType<GameManager>().lifeTxt;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!canMove) return;
+        if (audioManager == null) audioManager = FindObjectOfType<AudioManager>();
+        if (lifeCounter == null) lifeCounter = FindObjectOfType<GameManager>().lifeTxt;
+        if (!canMove || isDashing) return;
 
         rb.velocity = new Vector2(direction * moveSpeed, rb.velocity.y);
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
@@ -151,7 +155,7 @@ public class PlayerController : HealthController
         {
             canMove = true;
             rb.velocity = afterPauseSpeed;
-            rb.gravityScale = afterPauseGravity;
+            rb.gravityScale = originalGravity;
         }
     }
     #endregion
@@ -165,7 +169,13 @@ public class PlayerController : HealthController
             anim.SetBool("Dead", dead);
         }
         if (isInvencible) isInvencible = false;
-        currentHealth = maxHealth;
+        TakeHeal(maxHealth);
+    }
+
+    // Método destinado à aplicação de sons ao andar do player
+    public void StepSound()
+    {
+        stepSource.PlayOneShot(sfx[Random.Range(1, 4)]);
     }
 
     // Método destinado à transformação do player
@@ -176,17 +186,17 @@ public class PlayerController : HealthController
         switch (_newForm)
         {
             case PlayerForms.normal:
-                canAttack = false;
+                canUseHability = false;
                 //if (reloadUI != null) reloadUI.UpdateFill(1f);
                 break;
             case PlayerForms.clown:
-                canAttack = true;
+                canUseHability = true;
                 currentTimeToReload = clownReloadTime;
                 //if (reloadUI != null) reloadUI.UpdateFill(0f);
                 break;
-            case PlayerForms.thirdForm:
-                canAttack = true;
-                currentTimeToReload = secondReloadTime;
+            case PlayerForms.cowboy:
+                canUseHability = true;
+                currentTimeToReload = dashReloadTime;
                 //if (reloadUI != null) reloadUI.UpdateFill(0f);
                 break;
         }
@@ -194,23 +204,22 @@ public class PlayerController : HealthController
         anim.SetTrigger("ChangeForm");
     }
 
-    // Região destinada à métodos e funções de ataque
-    #region Attack Methods
+    // Região destinada à métodos e funções das habilidades
+    #region Habilities Methods
     // Método para execução de ataques à distânca
     public void Attack()
     {
-        if (canAttack)// && timeToReload == 0)
+        if (canUseHability)
         {
-            canAttack = false;
             switch (playerForms) 
             {
+                case PlayerForms.normal:
+                    canUseHability = false;
+                    break;
                 case PlayerForms.clown:
+                    canUseHability = false;
                     Instantiate(projectile, attackPoint.position, attackPoint.rotation).GetComponent<ProjectileController>().direction = new Vector2(transform.localScale.x, .15f);
                     currentTimeToReload = clownReloadTime;
-                    StartCoroutine(AttackReload());
-                    break;
-                case PlayerForms.thirdForm:
-                    currentTimeToReload = secondReloadTime;
                     StartCoroutine(AttackReload());
                     break;
             }
@@ -218,6 +227,40 @@ public class PlayerController : HealthController
             anim.SetFloat("ReloadAttack", timeToReload);
             //reloadUI.UpdateFill(currentTimeToReload / currentTimeToReload);
         } 
+    }
+
+    // método para ativação do dash
+    public void Dash()
+    {
+        if (canUseHability)
+        {
+            switch (playerForms)
+            {
+                case PlayerForms.normal:
+                    canUseHability = false;
+                    break;
+                case PlayerForms.cowboy:
+                    canUseHability = false;
+                    StartCoroutine(DashRoutine());
+                    break;
+            }
+        }
+    }
+
+    IEnumerator DashRoutine()
+    {
+        isDashing = true;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
+        if (OnGround()) stepSource.PlayOneShot(sfx[5]);
+        dashTrail.emitting = true;
+        anim.SetTrigger("Dash");
+        yield return new WaitForSeconds(dashingTime);
+        dashTrail.emitting = false;
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashReloadTime);
+        canUseHability = true;
     }
 
     // Método para execução de recarga do ataque à distância
@@ -229,7 +272,7 @@ public class PlayerController : HealthController
             //reloadUI.UpdateFill(timeToReload/currentTimeToReload);
             yield return new WaitForSeconds(.1f);
         }
-        canAttack = true;
+        canUseHability = true;
         timeToReload = 0f;
         anim.SetFloat("ReloadAttack", timeToReload);
         //reloadUI.UpdateFill(timeToReload / currentTimeToReload);
@@ -243,7 +286,16 @@ public class PlayerController : HealthController
     {
         direction = value.ReadValue<float>();
     }
-    
+
+    // Método de recepção de input para dash
+    public void DashAction(InputAction.CallbackContext value)
+    {
+        if (value.performed && canMove)
+        {
+            Dash();
+        }
+    }
+
     // Método de recepção de input para ataque a distância
     public void RangedAction(InputAction.CallbackContext value)
     {

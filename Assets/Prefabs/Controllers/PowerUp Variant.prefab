@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 339474113433359966, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2573882341137206705}
+    - target: {fileID: 339474113433359966, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
       propertyPath: objectName
       value: ClownPowerUp
       objectReference: {fileID: 0}
@@ -83,6 +87,18 @@ PrefabInstance:
     - target: {fileID: 1812597023005949604, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
       propertyPath: m_Name
       value: PowerUp Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747973913377416767, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747973913377416767, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 68c7c7c9-fa99-4cbe-ba63-90e06ff5f4d7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747973913377416767, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Player/DashAction[/Keyboard/leftShift]
       objectReference: {fileID: 0}
     - target: {fileID: 2878412333820552527, guid: d6dd93d20f4c03249baa4cbaa7016859, type: 3}
       propertyPath: m_LocalPosition.x

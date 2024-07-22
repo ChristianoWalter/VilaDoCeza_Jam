@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkScript:
   - characterName: Xuxu
-    dialogueTxt: Tenho certeza que tem mais dos meus ursinhos por aqui!!!
+    dialogueTxt: "Ainda tem ursinhos meus aqui, t\xF4 sentindo isso!!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: Por favor, encontre-os, eu preciso deles pequenino.
     characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
   - characterName: Xuxu
-    dialogueTxt: "Por favor pequenino, voc\xEA \xE9 meu her\xF3i, s\xF3 voc\xEA pode
-      salv\xE1-los!!"
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    dialogueTxt: "E n\xE3o pense que conseguir\xE1 ir sem me dar o que preciso."
+    characterImage: {fileID: -1480151206, guid: e6aac2e2fa861144d8517d18ade60fa2, type: 3}

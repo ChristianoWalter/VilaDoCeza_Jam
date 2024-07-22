@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     [Header("Audios Source")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
+    [SerializeField] AudioSource lastItemSource;
 
     [Header("Audios Clip")]
     public AudioClip[] SFXClips;
@@ -17,6 +18,11 @@ public class AudioManager : MonoBehaviour
         musicSource.Stop();
         musicSource.clip = musicClips[_song];
         musicSource.Play();
+    }
+
+    public void PlayLastItemSound()
+    {
+        lastItemSource.Play();
     }
 
     public void StopMusic()

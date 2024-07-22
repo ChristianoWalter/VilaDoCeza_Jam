@@ -38,8 +38,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] int levelsUnlocked;
     [SerializeField] GameObject playerRef;
     public GameObject interactBtn;
-    public int levelobjectsCollected;
+    public int levelObjectsCollected;
     [SerializeField] AudioManager audioManager;
+    public TextMeshProUGUI lifeTxt;
     [HideInInspector] public bool levelStarted;
     [HideInInspector] public bool gameIsPaused;
     GameObject currentSpawnVFX;
@@ -79,13 +80,13 @@ public class GameManager : MonoBehaviour
         if (SaveManager.LoadFiles() != null)
         {
             levelsUnlocked = SaveManager.LoadFiles().levelsUnlocked;
+            LoadProgress();
         }
     }
 
     private void Start()
     {
         MainMenuStart();
-        LoadProgress();
     }
 
     private void Update()
@@ -97,6 +98,11 @@ public class GameManager : MonoBehaviour
     public void SaveProgress()
     {
         SaveManager.SaveGame(new SaveFiles(levelsUnlocked));
+    }
+
+    public void ResetProgress()
+    {
+        SaveManager.SaveGame(new SaveFiles(0));
     }
 
     // Método de entrada de input para pausar jogo
@@ -192,6 +198,7 @@ public class GameManager : MonoBehaviour
         playerRef.SetActive(false);
         gameIsPaused = false;
         audioManager.ChangeMusic(0);
+        levelObjectsCollected = 0;
         SceneManager.LoadScene("MainMenu");
         SwitchScreen(GameScreens.mainMenu);
         yield return new WaitForSeconds(1f);
@@ -256,7 +263,6 @@ public class GameManager : MonoBehaviour
         FadeIn();
         isInGame = false;
         yield return new WaitForSeconds(1f);
-        playerRef.SetActive(false);
         SetPlayer();
         LoadLevelSelect();
     }
@@ -267,6 +273,7 @@ public class GameManager : MonoBehaviour
         audioManager.ChangeMusic(0);
         SwitchScreen(GameScreens.levelSelect);
         SceneManager.LoadScene("MainMenu");
+        levelObjectsCollected = 0;
         levels[currentLevelActive].SetActive(false);
         levels[currentLevelActive + 1].SetActive(true);
         currentLevelActive++;
@@ -291,21 +298,20 @@ public class GameManager : MonoBehaviour
     IEnumerator LoadLevel(string _levelName)
     {
         FadeIn();
-        levelStarted = false;
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(_levelName);
         playerRef.transform.position = Vector2.zero;
         SwitchScreen(GameScreens.gameUI);
         isInGame = true;
+        SetPlayer();
         yield return new WaitForSeconds(1f);
         FadeOut();
-        SetPlayer();
-        playerRef.SetActive(true);
     }
 
     // Método utilizado para mudar controle do player de acordo com o modo de jogo
     void SetPlayer()
     {
+        while (playerRef == null) { playerRef = FindObjectOfType<PlayerController>().gameObject; }
         playerRef.SetActive(isInGame);
         PlayerController.instance.PausePlayerMovement(!isInGame);
     }

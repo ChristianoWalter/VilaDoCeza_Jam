@@ -55,8 +55,27 @@ MonoBehaviour:
       pra mim!"
     characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
   - characterName: Xuxu
-    dialogueTxt: "S\xF3 tome cuidado com os antigos fofuxos no caminho ein!"
+    dialogueTxt: "S\xF3 tome cuidado com os antigos fofuxos no caminho ein! "
     characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Mas voc\xEA pode pular na cabe\xE7a deles, eles estouram!"
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Ah, mas voc\xEA ainda tem que aprender a andar n\xE9? Eu te ajudo!!!"
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: Para andar use as teclas "A, D" ou o seu joystick esquerdo do controle
+      de console!!
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Para pular voc\xEA pode usar o espa\xE7o ou o bot\xE3o sul do seu
+      controle!! (X para playstation, A para xbox)."
+    characterImage: {fileID: 1384289528, guid: 6bb4b10cdfa1a954fb8c0718cb2bec8f, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "E para interagir com o que for poss\xEDvel aperte \"E\" no seu
+      teclado ou o bot\xE3o Norte do seu controle!!! (Tri\xE2ngulo no playstation,
+      Y no Xbox)."
+    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
   - characterName: Xuxu
     dialogueTxt: "Ent\xE3o, crian\xE7ada, para come\xE7ar o epis\xF3dio de hoje,
       no 3, repitam comigo, \"comece\", tudo bem?"

@@ -14,25 +14,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkScript:
   - characterName: Xuxu
-    dialogueTxt: MINHA NOOOOOOOOSSAAA
+    dialogueTxt: "EXXXXPL\xCANDIDOOOOOOO!!!!!"
     characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
   - characterName: Xuxu
-    dialogueTxt: "Voc\xEA conseguiu mesmo! Sabia que voc\xEA era um her\xF3i!!"
+    dialogueTxt: Finalmente! Todos meus ursinhos reunidos!!!
     characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
   - characterName: Adriano
-    dialogueTxt: "Acho.. acho que eu j\xE1 quis ser her\xF3i um dia.. fico feliz."
+    dialogueTxt: Eu ouvi quando os ursinhos falaram... eu.. Eu lembro disso!!!
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
   - characterName: Xuxu
-    dialogueTxt: "Mas voc\xEA lembra disso ent\xE3o? Desse jeito voc\xEA n\xE3o estar\xE1
-      sendo meu her\xF3i pequenino."
+    dialogueTxt: "Isso n\xE3o est\xE1 certo.. voc\xEA lembra..?"
     characterImage: {fileID: 125282085, guid: e6af7385851b03a46b4cba2c1ec463e7, type: 3}
   - characterName: Adriano
-    dialogueTxt: Como assim..?
+    dialogueTxt: Sim!!! Eu.. consegui lembrar deles.
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "Mas.. como assim \"isso n\xE3o est\xE1 certo\"?"
     characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
   - characterName: Xuxu
-    dialogueTxt: "Nada pequenino, apenas.. esque\xE7a."
+    dialogueTxt: "Voc\xEA est\xE1 lembrando.. preciso me alimentar.. me entregue..."
+    characterImage: {fileID: -1480151206, guid: e6aac2e2fa861144d8517d18ade60fa2, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "Como assim?? Entregar o que? N\xE3o estou entendendo..."
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Adriano
+    dialogueTxt: "Eu.. me lembro de voc\xEA... o que est\xE1 acontecendo..????"
+    characterImage: {fileID: 21300000, guid: bff06437602af884c9a06f498f6cfc78, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: Infelizmente seu tempo de tela acabou.
     characterImage: {fileID: -1480151206, guid: e6aac2e2fa861144d8517d18ade60fa2, type: 3}
   - characterName: Xuxu
-    dialogueTxt: Vamos seguir em frente, ainda tenho alguns ursinhos desaparecidos
-      que esperam pelo seu resgate!!!
-    characterImage: {fileID: 376754270, guid: 2fe989be81012af4cb8b529bb73ccfe5, type: 3}
+    dialogueTxt: "E FICAMOS POR AQUI CRIAN\xC7ADA!!! AT\xC9 EPIS\xD3DIO QUE VEM!! "
+    characterImage: {fileID: -455615104, guid: d282c50ef065d81478bdeb8723aaed58, type: 3}
+  - characterName: Xuxu
+    dialogueTxt: "Ou at\xE9 mesmo uma nova temporada.."
+    characterImage: {fileID: 125282085, guid: e6af7385851b03a46b4cba2c1ec463e7, type: 3}

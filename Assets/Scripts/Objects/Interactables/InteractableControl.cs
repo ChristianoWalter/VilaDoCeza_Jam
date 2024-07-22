@@ -65,7 +65,8 @@ public class InteractableControl : MonoBehaviour
         if (clip.Length > 0) audioManager.PlaySFX(clip[0]);
         canInteract = false;
         GameManager.instance.interactBtn.SetActive(canInteract);
-        GameManager.instance.levelobjectsCollected++;
+        GameManager.instance.levelObjectsCollected++;
+        if (GameManager.instance.levelObjectsCollected == objectsToNextLevel) audioManager.PlayLastItemSound();
         Destroy(gameObject);
     }
 
@@ -83,7 +84,7 @@ public class InteractableControl : MonoBehaviour
     {
         canInteract = false;
         GameManager.instance.interactBtn.SetActive(canInteract);
-        if (GameManager.instance.levelobjectsCollected == objectsToNextLevel)
+        if (GameManager.instance.levelObjectsCollected == objectsToNextLevel)
         {
             anim.SetTrigger("ChangeDoor");
             PlaySFX(0);

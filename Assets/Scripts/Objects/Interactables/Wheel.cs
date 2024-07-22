@@ -40,7 +40,7 @@ public class Wheel : InteractableControl
 
     public void SpawnPowerUp()
     {
-        if (spawnRandom) powerUpIndex = Random.Range(0, powerUp.Length);
+        if (spawnRandom) powerUpIndex = Random.Range(0, 2);
         powerUpRef = Instantiate(powerUp[powerUpIndex], powerUpSpawn.position, powerUpSpawn.rotation);
         canInteract = true;
     }

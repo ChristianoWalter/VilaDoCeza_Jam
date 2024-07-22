@@ -123,18 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &901065428 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9043858463934714619, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
-  m_PrefabInstance: {fileID: 1827915138}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &1751552920
+--- !u!1001 &707161099
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -142,25 +131,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 920986049095794189, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
-      propertyPath: reloadUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 920986049095794189, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
-      propertyPath: lifeCounter
-      value: 
-      objectReference: {fileID: 901065428}
-    - target: {fileID: 920986049095794189, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 1757656757}
     - target: {fileID: 5149511924067332442, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.822577
+      value: 0.15818375
       objectReference: {fileID: 0}
     - target: {fileID: 5149511924067332442, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18801251
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 5149511924067332442, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
       propertyPath: m_LocalPosition.z
@@ -203,23 +180,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
---- !u!1 &1751552921 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5744359952091704577, guid: b426469f75bf02e42904a4bd57287e18, type: 3}
-  m_PrefabInstance: {fileID: 1751552920}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1757656757 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4791690667745784551, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
-  m_PrefabInstance: {fileID: 1827915138}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac78191cf964d1d42a42f62812d3ea34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &1827915138
+--- !u!1001 &1093792243
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -267,10 +228,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5413325162237402881, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
-      propertyPath: playerRef
-      value: 
-      objectReference: {fileID: 1751552921}
     - target: {fileID: 5575448269734692959, guid: a45915fb8d1145f4698c121818e044f4, type: 3}
       propertyPath: m_Name
       value: Game Manager
@@ -284,5 +241,5 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1827915138}
-  - {fileID: 1751552920}
+  - {fileID: 1093792243}
+  - {fileID: 707161099}
